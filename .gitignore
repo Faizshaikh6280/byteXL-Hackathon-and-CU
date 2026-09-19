@@ -42,6 +42,8 @@ zingg_worker/target/
 README_byteXL.md
 *.db
 *.txt
+!requirements.txt
+!*/requirements.txt
 fix_*.py
 update_*.py
 query
