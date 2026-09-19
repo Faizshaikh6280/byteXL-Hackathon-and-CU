@@ -194,7 +194,8 @@ def get_anomalies(
                 "domain": r.domain or "CROSS_DOMAIN",
                 "contributingDetectors": r.contributing_detectors or r.detectors or [],
                 "evidence_refs": r.evidence_refs or [],
-                "canonical_event_refs": r.canonical_event_refs or []
+                "canonical_event_refs": r.canonical_event_refs or [],
+                "entityInteractions": (r.technical_details or {}).get("entity_interactions", [])
             }
             for r in rows
         ],

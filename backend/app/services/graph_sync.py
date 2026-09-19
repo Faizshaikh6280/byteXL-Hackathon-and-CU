@@ -132,10 +132,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     MERGE (p:Person {case_id: row.case_id, golden_id: row.cluster_id})
                     MERGE (p)-[r:OWNS_PHONE]->(ph)
                     SET r.case_id = row.case_id
-                    MERGE (ph)-[res:RESOLVED_TO]->(p)
-                    SET res.confidence_score = 1.0,
-                        res.match_rule_triggered = "EXACT_PHONE",
-                        res.case_id = row.case_id
                 """, owns_phone_batch)
 
             if owns_acc_batch:
@@ -151,10 +147,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     MERGE (p:Person {case_id: row.case_id, golden_id: row.cluster_id})
                     MERGE (p)-[r:OWNS_ACCOUNT]->(ba)
                     SET r.case_id = row.case_id
-                    MERGE (ba)-[res:RESOLVED_TO]->(p)
-                    SET res.confidence_score = 1.0,
-                        res.match_rule_triggered = "EXACT_ACCOUNT",
-                        res.case_id = row.case_id
                 """, owns_acc_batch)
 
             if uses_handle_batch:
@@ -170,10 +162,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     MERGE (p:Person {case_id: row.case_id, golden_id: row.cluster_id})
                     MERGE (p)-[r:USES_HANDLE]->(s)
                     SET r.case_id = row.case_id
-                    MERGE (s)-[res:RESOLVED_TO]->(p)
-                    SET res.confidence_score = 0.89,
-                        res.match_rule_triggered = "SOCIAL_HANDLE_LINK",
-                        res.case_id = row.case_id
                 """, uses_handle_batch)
 
         # ── 3. Sync Operational Telemetry & Transactions in Batches ──
@@ -205,29 +193,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
             event_type = ev.get("event_type", "")
             attributes = ev.get("attributes") or {}
 
-            # Call Detail Records (CALLS / CALLED)
-            called = attributes.get("called_number")
-            if (event_type == "CALL" or called) and not is_empty(phone) and not is_empty(called):
-                session.run("""
-                    MERGE (p1:Phone {number: $phone})
-                    MERGE (p2:Phone {number: $called})
-                    MERGE (p1)-[r:CALLS]->(p2)
-                    SET r.last_seen = $timestamp,
-                        r.timestamp = $timestamp,
-                        r.duration_seconds = $duration,
-                        r.call_id   = $call_id
-                    MERGE (p1)-[r2:CALLED]->(p2)
-                    SET r2.last_seen = $timestamp,
-                        r2.duration  = $duration,
-                        r2.call_id   = $call_id
-                """, {
-                    "phone": str(phone).strip(),
-                    "called": str(called).strip(),
-                    "timestamp": timestamp,
-                    "duration": telemetry.get("duration_seconds", 0),
-                    "call_id": attributes.get("call_id", "")
-                })
-
             # SIM Card (IMSI) → Phone (USES_SIM)
             imsi = telemetry.get("imsi") or ev.get("attributes", {}).get("imsi")
             if not is_empty(imsi) and not is_empty(phone):
@@ -241,7 +206,7 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                         "case_id": target_case_id
                     }
 
-            # Device / IMEI → Phone (USES_DEVICE / USED_DEVICE)
+            # Device / IMEI → Phone (USES_DEVICE)
             imei = telemetry.get("imei") or ev.get("attributes", {}).get("imei") or ev.get("attributes", {}).get("device_id")
             if not is_empty(imei) and not is_empty(phone):
                 k = (str(phone).strip(), str(imei).strip())
@@ -255,7 +220,7 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                         "case_id": target_case_id
                     }
 
-            # CellTower → Phone (LOCATED_AT / PINGED_TOWER)
+            # CellTower → Phone (LOCATED_AT)
             tower = telemetry.get("cell_tower_id") or ev.get("attributes", {}).get("cell_id")
             if not is_empty(tower) and not is_empty(phone):
                 k = (str(phone).strip(), str(tower).strip())
@@ -278,7 +243,7 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     if timestamp > pinged_tower_map[k]["last_seen"]:
                         pinged_tower_map[k]["last_seen"] = timestamp
 
-            # Logical IP Routing based on Domain (CONNECTS_VIA_IP / ASSIGNED_IP / LOGGED_IN_FROM)
+            # Logical IP Routing based on Domain (CONNECTS_VIA_IP)
             ip = telemetry.get("assigned_ip") or ev.get("attributes", {}).get("ip") or ev.get("attributes", {}).get("destination_ip")
             sport = telemetry.get("source_port") or attributes.get("source_port")
             domain = ev.get("domain") or ev.get("source_type")
@@ -319,7 +284,7 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                             "case_id": target_case_id
                         }
 
-            # Financial Transactions between Bank Accounts (TRANSFERS_MONEY / TRANSACTED_WITH)
+            # Financial Transactions between Bank Accounts (TRANSFERS_MONEY)
             acc = financial.get("account_number") or ev.get("attributes", {}).get("from_account")
             cp_acc = financial.get("counterparty") or ev.get("attributes", {}).get("to_account")
             if not is_empty(acc) and not is_empty(cp_acc):
@@ -412,8 +377,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     i.case_ids = CASE WHEN i.case_ids IS NULL THEN [row.case_id] WHEN row.case_id IN i.case_ids THEN i.case_ids ELSE i.case_ids + [row.case_id] END
                 MERGE (ph)-[r:USES_DEVICE]->(i)
                 SET r.last_seen = row.last_seen, r.timestamp = row.last_seen, r.session_duration = row.duration, r.user_agent_string = row.user_agent, r.case_id = row.case_id
-                MERGE (ph)-[r2:USED_DEVICE]->(i)
-                SET r2.last_seen = row.last_seen, r2.case_id = row.case_id
             """, list(used_device_map.values()))
 
         if pinged_tower_map:
@@ -427,8 +390,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     ph.case_ids = CASE WHEN ph.case_ids IS NULL THEN [row.case_id] WHEN row.case_id IN ph.case_ids THEN ph.case_ids ELSE ph.case_ids + [row.case_id] END
                 MERGE (ph)-[r:LOCATED_AT]->(t)
                 SET r.last_seen = row.last_seen, r.timestamp = row.last_seen, r.signal_strength_dbm = row.duration, r.case_id = row.case_id
-                MERGE (ph)-[r2:PINGED_TOWER]->(t)
-                SET r2.last_seen = row.last_seen, r2.duration = row.duration, r2.pings_count = row.pings_count, r2.case_id = row.case_id
             """, list(pinged_tower_map.values()))
 
         if assigned_ip_map:
@@ -442,8 +403,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     ph.case_ids = CASE WHEN ph.case_ids IS NULL THEN [row.case_id] WHEN row.case_id IN ph.case_ids THEN ph.case_ids ELSE ph.case_ids + [row.case_id] END
                 MERGE (ph)-[r:CONNECTS_VIA_IP]->(i)
                 SET r.last_seen = row.last_seen, r.timestamp = row.last_seen, r.source_port = row.source_port, r.destination_ip = row.destination_ip, r.app_protocol = row.app_protocol, r.case_id = row.case_id
-                MERGE (ph)-[r2:ASSIGNED_IP]->(i)
-                SET r2.last_seen = row.last_seen, r2.case_id = row.case_id
             """, list(assigned_ip_map.values()))
 
         if social_ip_map:
@@ -457,8 +416,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     s.case_ids = CASE WHEN s.case_ids IS NULL THEN [row.case_id] WHEN row.case_id IN s.case_ids THEN s.case_ids ELSE s.case_ids + [row.case_id] END
                 MERGE (s)-[r:CONNECTS_VIA_IP]->(i)
                 SET r.last_seen = row.last_seen, r.timestamp = row.last_seen, r.source_port = row.source_port, r.case_id = row.case_id
-                MERGE (s)-[r2:LOGGED_IN_FROM]->(i)
-                SET r2.last_seen = row.last_seen, r2.case_id = row.case_id
             """, list(social_ip_map.values()))
 
         if person_ip_map:
@@ -470,8 +427,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                 MERGE (p:Person {case_id: row.case_id, golden_id: row.cluster_id})
                 MERGE (p)-[r:CONNECTS_VIA_IP]->(i)
                 SET r.last_seen = row.last_seen, r.timestamp = row.last_seen, r.source_port = row.source_port, r.case_id = row.case_id
-                MERGE (p)-[r2:LOGGED_IN_FROM]->(i)
-                SET r2.last_seen = row.last_seen, r2.case_id = row.case_id
             """, list(person_ip_map.values()))
 
         if transacted_map:
@@ -490,14 +445,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     r.narration = row.narration,
                     r.timestamp = row.last_seen,
                     r.case_id = row.case_id
-                MERGE (ba)-[r2:TRANSACTED_WITH]->(cp)
-                SET r2.amount = row.total_amount,
-                    r2.total_amount = row.total_amount,
-                    r2.txn_count = row.txn_count,
-                    r2.txn_type = row.txn_type,
-                    r2.timestamp = row.last_seen,
-                    r2.channel = row.channel,
-                    r2.case_id = row.case_id
             """, list(transacted_map.values()))
 
         if cashout_map:
@@ -531,12 +478,6 @@ def sync_mongo_to_neo4j(case_id: Optional[str] = None):
                     r.call_type = row.call_type,
                     r.timestamp = row.last_seen,
                     r.case_id = row.case_id
-                MERGE (caller)-[r2:CALLED]->(callee)
-                SET r2.duration = row.total_duration,
-                    r2.total_duration = row.total_duration,
-                    r2.call_count = row.call_count,
-                    r2.timestamp = row.last_seen,
-                    r2.case_id = row.case_id
             """, list(called_map.values()))
 
         logger.info(f"[GraphSync] Batched Synced {len(profile_dicts)} Golden Persons and {event_count} events to Neo4j for Case {target_case_id}.")

@@ -66,12 +66,17 @@ class CorrelatedSignalGroup:
         # Specialized deterministic and domain-specific detectors outrank generic statistical/behavioral ones
         detector_priority = {
             "DET-FIN-COORDINATED-FLOW": 100,
+            "DET-FIN-HIGH-VALUE-BURST": 98,
             "DET-SPATIAL-CONVERGENCE": 95,
+            "DET-GEO-TRAJECTORY": 92,
             "DET-COMM-SYNC-EPISODE": 90,
             "DET-SOC-INFRA": 85,
+            "DET-SOC-SYNC": 82,
             "DET-ID-DISCREPANCY": 80,
             "DET-CROSS-COLLISION": 75,
+            "DET-SPATIAL-TAILING": 72,
             "DET-FIN-ATM-CASHOUT": 70,
+            "DET-SPATIAL-DARKPERIOD": 68,
             "DET-FIN-FANOUT": 65,
             "DET-FIN-STRUCTURING": 60,
             "DET-SPATIAL-TRAVEL": 55,
@@ -101,9 +106,12 @@ class SignalCorrelationEngine:
         "DET-SPATIAL-CONVERGENCE",
         "DET-COMM-SYNC-EPISODE",
         "DET-SOC-INFRA",
+        "DET-SOC-SYNC",
         "DET-ID-DISCREPANCY",
         "DET-CROSS-COLLISION",
-        "DET-GEO-TRAJECTORY"
+        "DET-GEO-TRAJECTORY",
+        "DET-SPATIAL-TAILING",
+        "DET-SPATIAL-DARKPERIOD"
     }
 
     def correlate(
@@ -127,9 +135,12 @@ class SignalCorrelationEngine:
             "DET-GEO-TRAJECTORY": 92,
             "DET-COMM-SYNC-EPISODE": 90,
             "DET-SOC-INFRA": 85,
+            "DET-SOC-SYNC": 82,
             "DET-ID-DISCREPANCY": 80,
             "DET-CROSS-COLLISION": 75,
+            "DET-SPATIAL-TAILING": 72,
             "DET-FIN-ATM-CASHOUT": 70,
+            "DET-SPATIAL-DARKPERIOD": 68,
             "DET-FIN-FANOUT": 65,
             "DET-FIN-STRUCTURING": 60,
             "DET-SPATIAL-TRAVEL": 55,
@@ -220,6 +231,15 @@ class SignalCorrelationEngine:
                 common_ents = set(signal.entity_refs).intersection(group.entities)
                 if common_ents:
                     return (True, "Consolidated progressive multi-location trajectory route on entity.")
+                return (False, "")
+            elif signal.detector_id == "DET-SPATIAL-TAILING":
+                return (True, "Consolidated trajectory tailing episode across target and follower.")
+            elif signal.detector_id == "DET-SOC-SYNC":
+                return (True, "Consolidated synchronized social/cyber coordination episode.")
+            elif signal.detector_id == "DET-SPATIAL-DARKPERIOD":
+                common_ents = set(signal.entity_refs).intersection(group.entities)
+                if common_ents:
+                    return (True, "Consolidated radio silence gap on entity.")
                 return (False, "")
 
         # 2. Core Signal arriving at Generic Group:

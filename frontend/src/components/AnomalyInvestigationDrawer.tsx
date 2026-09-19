@@ -182,13 +182,122 @@ export default function AnomalyInvestigationDrawer({
           </div>
         </div>
 
+        {/* SECTION: ALL CO-CONSPIRATORS & RELATED SUSPECTS */}
+        {relatedEntities.length > 0 && (
+          <div className="space-y-2.5">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+              <User className="w-4 h-4 text-amber-500" />
+              Co-Conspirators &amp; Related Targets ({relatedEntities.length})
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {relatedEntities.map((ent, idx) => {
+                const eid = ent.entity_id || `entity-${idx}`;
+                const name = ent.display_name || eid;
+                return (
+                  <div key={idx} className="p-3 bg-secondary/30 rounded-xl border border-border/60 text-xs space-y-1.5 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="font-bold text-foreground flex items-center gap-1.5">
+                          <User className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+                          <span className="truncate">{name}</span>
+                        </span>
+                        {ent.role && (
+                          <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-500 font-bold border border-amber-500/20 flex-shrink-0">
+                            {ent.role}
+                          </span>
+                        )}
+                      </div>
+                      {name !== eid && (
+                        <div className="text-[10px] font-mono text-muted-foreground mt-0.5">{eid}</div>
+                      )}
+                      {ent.aliases && ent.aliases.length > 0 && (
+                        <div className="text-[11px] text-muted-foreground mt-1 italic">
+                          Alias: &quot;{ent.aliases[0]}&quot;
+                        </div>
+                      )}
+                      {ent.phones && ent.phones.length > 0 && (
+                        <div className="text-[10px] font-mono text-muted-foreground mt-1">
+                          Phone: <strong className="text-foreground">{ent.phones[0]}</strong>
+                        </div>
+                      )}
+                      {ent.accounts && ent.accounts.length > 0 && (
+                        <div className="text-[10px] font-mono text-muted-foreground">
+                          Account: <strong className="text-foreground">{ent.accounts[0]}</strong>
+                        </div>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => onViewOnGraph(eid)}
+                      className="mt-2 py-1 px-2 bg-secondary hover:bg-secondary/80 text-[10px] font-bold text-primary rounded border border-border flex items-center justify-center gap-1 transition-colors"
+                    >
+                      <Network className="w-3 h-3" /> Focus on Graph
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* SECTION: INTER-ENTITY ACTIVITIES & EVIDENCE FLOW */}
+        {anomaly.entityInteractions && anomaly.entityInteractions.length > 0 && (
+          <div className="space-y-2.5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <ArrowLeftRight className="w-4 h-4 text-primary" />
+                Inter-Entity Activity &amp; Transaction Flow ({anomaly.entityInteractions.length})
+              </div>
+              <span className="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
+                Cross-Suspect Links
+              </span>
+            </div>
+            <div className="bg-card border border-border rounded-xl p-4 space-y-3 shadow-xs">
+              {anomaly.entityInteractions.map((act, i) => (
+                <div key={i} className="p-3 bg-secondary/30 rounded-lg border border-border/60 text-xs space-y-2">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <div className="flex items-center gap-2 font-semibold">
+                      <span className="text-foreground bg-secondary px-2 py-1 rounded border border-border flex items-center gap-1 font-bold">
+                        <User className="w-3 h-3 text-primary" />
+                        {act.source_entity}
+                      </span>
+                      <span className="text-primary font-bold">➔</span>
+                      <span className="text-foreground bg-secondary px-2 py-1 rounded border border-border flex items-center gap-1 font-bold">
+                        <User className="w-3 h-3 text-amber-500" />
+                        {act.target_entity}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
+                      {act.interaction_type}
+                    </span>
+                  </div>
+                  <div className="text-muted-foreground text-[11px] leading-relaxed">
+                    {act.description}
+                  </div>
+                  {(act.amount_inr || act.timestamp) && (
+                    <div className="flex items-center gap-4 text-[10px] font-mono text-muted-foreground pt-1 border-t border-border/40">
+                      {act.amount_inr && (
+                        <span className="text-emerald-500 font-bold">
+                          Amount: ₹{act.amount_inr.toLocaleString()}
+                        </span>
+                      )}
+                      {act.timestamp && (
+                        <span>Timestamp: {act.timestamp}</span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* SECTION 1: WHAT HAPPENED */}
         <div className="space-y-2.5">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
             <FileText className="w-4 h-4 text-primary" />
             1. What Happened (Factual Event Sequence)
           </div>
-          <div className="bg-secondary/30 border border-border rounded-xl p-4 text-xs text-foreground leading-relaxed font-medium">
+          <div className="bg-secondary/30 border border-border rounded-xl p-4 text-xs text-foreground leading-relaxed font-medium whitespace-pre-line space-y-2">
             {whatHappened}
           </div>
         </div>
@@ -199,7 +308,7 @@ export default function AnomalyInvestigationDrawer({
             <Activity className="w-4 h-4 text-amber-500" />
             2. Why It Is Unusual (Baseline Comparison)
           </div>
-          <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-4 text-xs text-foreground leading-relaxed">
+          <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-4 text-xs text-foreground leading-relaxed whitespace-pre-line">
             {whyUnusual}
           </div>
         </div>
@@ -210,7 +319,7 @@ export default function AnomalyInvestigationDrawer({
             <ShieldCheck className="w-4 h-4 text-emerald-500" />
             3. Why Relevant to This Investigation
           </div>
-          <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-4 text-xs text-foreground leading-relaxed">
+          <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-4 text-xs text-foreground leading-relaxed whitespace-pre-line">
             {whyRelevant}
             {anomaly.relevanceReasons && anomaly.relevanceReasons.length > 0 && (
               <ul className="mt-2 space-y-1 text-[11px] text-muted-foreground">

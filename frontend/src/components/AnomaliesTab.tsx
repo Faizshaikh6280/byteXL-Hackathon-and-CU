@@ -670,44 +670,148 @@ export default function AnomaliesTab({ onAnomalySelect, onPivotToGraph }: Anomal
                         </span>
                       )}
 
-                      <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded border border-primary/20 flex items-center gap-1.5">
-                        <User className="w-3.5 h-3.5" />
-                        {a.primaryEntities?.[0]?.display_name || a.entityId}
-                        {a.primaryEntities?.[0]?.display_name && a.primaryEntities[0].display_name !== a.entityId && (
-                          <span className="text-[10px] font-mono text-muted-foreground">({a.entityId})</span>
-                        )}
-                      </span>
+                      {/* All Involved Suspects & Co-Conspirators */}
+                      {(() => {
+                        const allEntities: Array<{ id: string; name: string; role?: string; isPrimary: boolean; aliases?: string[] }> = [];
+                        const seenIds = new Set<string>();
 
-                      {a.primaryEntities?.[0]?.aliases && a.primaryEntities[0].aliases.length > 0 && (
-                        <span className="text-[11px] text-muted-foreground italic">
-                          alias: &quot;{a.primaryEntities[0].aliases[0]}&quot;
+                        (a.primaryEntities || []).forEach(e => {
+                          const id = e.entity_id || a.entityId;
+                          if (id && !seenIds.has(id)) {
+                            seenIds.add(id);
+                            allEntities.push({
+                              id,
+                              name: e.display_name || id,
+                              role: e.role,
+                              isPrimary: true,
+                              aliases: e.aliases
+                            });
+                          }
+                        });
+
+                        if (allEntities.length === 0 && a.entityId) {
+                          seenIds.add(a.entityId);
+                          allEntities.push({ id: a.entityId, name: a.entityId, isPrimary: true });
+                        }
+
+                        (a.relatedEntities || []).forEach(e => {
+                          const id = e.entity_id;
+                          if (id && !seenIds.has(id)) {
+                            seenIds.add(id);
+                            allEntities.push({
+                              id,
+                              name: e.display_name || id,
+                              role: e.role,
+                              isPrimary: false,
+                              aliases: e.aliases
+                            });
+                          }
+                        });
+
+                        return allEntities.map((ent, idx) => (
+                          <span
+                            key={idx}
+                            className={cn(
+                              "text-xs font-bold px-2.5 py-0.5 rounded border flex items-center gap-1.5",
+                              ent.isPrimary
+                                ? "text-primary bg-primary/10 border-primary/25"
+                                : "text-amber-500 bg-amber-500/10 border-amber-500/25"
+                            )}
+                            title={`${ent.isPrimary ? 'Primary Target' : 'Co-Conspirator / Associated'}: ${ent.name} (${ent.id})`}
+                          >
+                            <User className="w-3.5 h-3.5 flex-shrink-0" />
+                            <span>{ent.name}</span>
+                            {ent.name !== ent.id && (
+                              <span className="text-[10px] font-mono opacity-70">({ent.id})</span>
+                            )}
+                            {ent.role && (
+                              <span className="text-[9px] uppercase tracking-wider px-1 bg-background/60 rounded font-semibold text-muted-foreground">
+                                {ent.role}
+                              </span>
+                            )}
+                            {ent.aliases && ent.aliases.length > 0 && (
+                              <span className="text-[10px] italic opacity-80">
+                                &quot;{ent.aliases[0]}&quot;
+                              </span>
+                            )}
+                          </span>
+                        ));
+                      })()}
+                    </div>
+
+                    {/* Factual Headline */}
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
+                          {a.type ? a.type.replace(/_/g, ' ') : 'INVESTIGATIVE ANOMALY'}
                         </span>
-                      )}
+                        <span className="text-xs text-muted-foreground font-mono">ID: {a.id}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+                        {a.title || `${a.type} Anomaly Detected`}
+                      </h3>
                     </div>
 
-                    {/* Factual Title */}
-                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                      {a.title || `${a.type} Anomaly Detected`}
-                    </h3>
-
-                    {/* Layer 1: What Happened */}
-                    <div className="text-xs text-foreground/90 leading-relaxed font-medium bg-secondary/30 p-3 rounded-lg border border-border/50">
-                      <span className="font-bold text-primary mr-1.5">What Happened:</span>
-                      {whatHappened}
+                    {/* Layer 1: What Happened (Multi-paragraph plain English) */}
+                    <div className="text-xs text-foreground/90 leading-relaxed font-medium bg-secondary/30 p-3.5 rounded-lg border border-border/50 whitespace-pre-line space-y-2">
+                      <div>
+                        <span className="font-bold text-primary mr-1.5 uppercase text-[10px] tracking-wider bg-primary/10 px-1.5 py-0.5 rounded">
+                          What Happened
+                        </span>
+                      </div>
+                      <div className="leading-relaxed">
+                        {whatHappened}
+                      </div>
                     </div>
+
+                    {/* Inter-Entity Activities & Links Strip */}
+                    {a.entityInteractions && a.entityInteractions.length > 0 && (
+                      <div className="bg-primary/5 rounded-lg p-2.5 border border-primary/15 space-y-1.5">
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-primary flex items-center gap-1.5">
+                          <Activity className="w-3 h-3" />
+                          <span>Detected Inter-Entity Activities & Transfers ({a.entityInteractions.length})</span>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {a.entityInteractions.slice(0, 3).map((act, idx) => (
+                            <div
+                              key={idx}
+                              className="text-[11px] bg-card px-2.5 py-1 rounded border border-border flex items-center gap-1.5 shadow-2xs"
+                            >
+                              <span className="font-semibold text-foreground">{act.source_entity}</span>
+                              <span className="text-primary font-bold">➔</span>
+                              <span className="text-muted-foreground text-[10px] bg-secondary px-1.5 py-0.5 rounded">
+                                {act.description || act.interaction_type}
+                              </span>
+                              <span className="text-primary font-bold">➔</span>
+                              <span className="font-semibold text-foreground">{act.target_entity}</span>
+                              {act.amount_inr && (
+                                <span className="text-[10px] font-mono text-emerald-500 font-bold ml-1">
+                                  ₹{act.amount_inr.toLocaleString()}
+                                </span>
+                              )}
+                            </div>
+                          ))}
+                          {a.entityInteractions.length > 3 && (
+                            <span className="text-[10px] font-semibold text-muted-foreground self-center">
+                              +{a.entityInteractions.length - 3} more activity link(s)
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Layer 2: Why Unusual & Why Relevant */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[11px] text-muted-foreground">
                       {a.whyUnusual && (
-                        <div>
+                        <div className="bg-secondary/20 p-2 rounded border border-border/40">
                           <span className="font-bold text-foreground">Why Unusual: </span>
-                          <span>{a.whyUnusual}</span>
+                          <span className="whitespace-pre-line">{a.whyUnusual}</span>
                         </div>
                       )}
                       {a.whyRelevant && (
-                        <div>
+                        <div className="bg-secondary/20 p-2 rounded border border-border/40">
                           <span className="font-bold text-foreground">Why Relevant: </span>
-                          <span>{a.whyRelevant}</span>
+                          <span className="whitespace-pre-line">{a.whyRelevant}</span>
                         </div>
                       )}
                     </div>

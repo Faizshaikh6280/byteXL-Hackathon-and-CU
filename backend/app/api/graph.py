@@ -16,13 +16,53 @@ from app.audit.audit_service import record_audit_event, AuditAction
 router = APIRouter()
 
 def extract_label(labels, props):
+    labels_set = set(labels or [])
+    
+    # 1. Type-specific authoritative identifiers (guarantees BankAccount never gets Person name)
+    if "BankAccount" in labels_set or props.get("account_number"):
+        acc = props.get("account_number")
+        if acc:
+            return str(acc)
+    if "IMEI" in labels_set or "Device" in labels_set or props.get("imei_number") or props.get("imei"):
+        imei = props.get("imei_number") or props.get("imei")
+        if imei:
+            return str(imei)
+    if "SIMCard" in labels_set or props.get("imsi"):
+        imsi = props.get("imsi")
+        if imsi:
+            return f"SIM: {imsi}"
+    if "SocialAccount" in labels_set or props.get("handle"):
+        handle = props.get("handle")
+        if handle:
+            return f"@{str(handle).lstrip('@')}"
+    if "CellTower" in labels_set or props.get("tower_id") or props.get("cell_tower_id"):
+        tower = props.get("tower_id") or props.get("cell_tower_id")
+        if tower:
+            return str(tower)
+    if "ATM" in labels_set or props.get("atm_id"):
+        atm = props.get("atm_id")
+        if atm:
+            return f"ATM: {atm}"
+    if "IPAddress" in labels_set or props.get("address") or props.get("ip") or props.get("assigned_ip"):
+        ip = props.get("address") or props.get("ip") or props.get("assigned_ip")
+        if ip:
+            return str(ip)
+    if "Phone" in labels_set or props.get("number") or props.get("phone"):
+        ph = props.get("number") or props.get("phone")
+        if ph:
+            return str(ph)
+    if "Person" in labels_set:
+        pname = props.get("primary_name") or props.get("name")
+        if pname and not _is_phone_number(pname):
+            return str(pname)
+
+    # 2. General fallback prioritizing exact IDs over generic fields (holder moved to last resort)
     lbl = (
         props.get("primary_name") or
         props.get("name") or 
-        props.get("holder") or 
+        props.get("account_number") or 
         props.get("number") or 
         props.get("phone") or
-        props.get("account_number") or 
         props.get("imei_number") or 
         props.get("imei") or 
         (f"SIM: {props['imsi']}" if props.get("imsi") else None) or
@@ -36,7 +76,8 @@ def extract_label(labels, props):
         props.get("email") or
         props.get("identifier") or
         props.get("id") or
-        props.get("golden_id")
+        props.get("golden_id") or
+        props.get("holder")
     )
     if lbl:
         return str(lbl)
@@ -301,7 +342,15 @@ def build_canonical_graph(target_case_id: str):
     except Exception:
         pass
 
-    return {"nodes": list(nodes.values()), "edges": edges}
+    clean_edges = [
+        e for e in edges
+        if e["source"] in nodes
+        and e["target"] in nodes
+        and e["source"] != e["target"]
+        and e.get("relationship") not in ("RESOLVED_TO", "OWNS_PHONE")
+        and nodes[e["source"]].get("label") != nodes[e["target"]].get("label")
+    ]
+    return {"nodes": list(nodes.values()), "edges": clean_edges}
 
 @router.get("/topology")
 def get_graph_topology(
@@ -564,8 +613,15 @@ def get_graph_topology(
                             "properties": nprops
                         }
 
-                # Edges connecting active nodes
-                edges = [e for e in projected_edges_map.values() if e["source"] in nodes and e["target"] in nodes]
+                # Edges connecting active nodes (drop self-loops, redundant bridges, and identical label connections)
+                edges = [
+                    e for e in projected_edges_map.values()
+                    if e["source"] in nodes
+                    and e["target"] in nodes
+                    and e["source"] != e["target"]
+                    and e.get("relationship") not in ("RESOLVED_TO", "OWNS_PHONE")
+                    and nodes[e["source"]].get("label") != nodes[e["target"]].get("label")
+                ]
 
                 # Optionally include Anomaly nodes & HAS_ANOMALY edges
                 if include_anomalies:
@@ -633,7 +689,7 @@ class AddConnectedRelationRequest(BaseModel):
     target_node_attributes: Optional[Dict[str, Any]] = Field(default_factory=dict)
 
     # Relationship Details
-    relationship_type: str = Field(..., description="Relationship type e.g. CALLS, TRANSFERS_MONEY, USES_DEVICE, USES_SIM, CONNECTS_VIA_IP, LOCATED_AT, RESOLVED_TO, ASSOCIATED_WITH")
+    relationship_type: str = Field(..., description="Relationship type e.g. CALLS, TRANSFERS_MONEY, USES_DEVICE, USES_SIM, CONNECTS_VIA_IP, LOCATED_AT, ASSOCIATED_WITH")
     direction: Optional[str] = Field("outgoing", description="outgoing, incoming, or bidirectional")
     relationship_attributes: Optional[Dict[str, Any]] = Field(default_factory=dict)
 

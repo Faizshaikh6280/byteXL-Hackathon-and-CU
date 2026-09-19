@@ -22,20 +22,22 @@ class SignalNormalizer:
 
     DETECTOR_PATTERN_MAP = {
         "DET-FIN-COORDINATED-FLOW": "FIN_COORDINATED_FLOW",
-        "DET-FIN-ATM-CASHOUT": "RAPID_ATM_CASHOUT",
-        "DET-FIN-FANOUT": "RAPID_FAN_OUT",
-        "DET-FIN-STRUCTURING": "FINANCIAL_STRUCTURING",
-        "DET-FIN-DORMANT": "DORMANT_AWAKENING",
-        "DET-SPATIAL-TRAVEL": "IMPOSSIBLE_TRAVEL",
+        "DET-FIN-ATM-CASHOUT": "FIN_ATM_CASHOUT",
+        "DET-FIN-FANOUT": "FIN_RAPID_FAN_OUT",
+        "DET-FIN-STRUCTURING": "FIN_STRUCTURING",
+        "DET-FIN-DORMANT": "FIN_DORMANT_AWAKENING",
+        "DET-FIN-HIGH-VALUE-BURST": "FIN_HIGH_VALUE_BURST",
+        "DET-SPATIAL-TRAVEL": "GEO_IMPOSSIBLE_TRAVEL",
         "DET-SPATIAL-CONVERGENCE": "GEO_CONVERGENCE",
-        "DET-SPATIAL-TAILING": "TRAJECTORY_TAILING",
-        "DET-SPATIAL-DARKPERIOD": "RADIO_SILENCE_DARK_PERIOD",
+        "DET-SPATIAL-TAILING": "GEO_TAILING",
+        "DET-GEO-TRAJECTORY": "GEO_TRAJECTORY",
+        "DET-SPATIAL-DARKPERIOD": "GEO_DARK_PERIOD",
         "DET-COMM-SYNC-EPISODE": "COMM_SYNCHRONIZED_EPISODE",
         "DET-SOC-INFRA": "SOC_SHARED_INFRASTRUCTURE",
-        "DET-SOC-SYNC": "SYNCHRONOUS_COORDINATED_ACTIVITY",
-        "DET-NET-VPN-TOR": "ANONYMIZER_VPN_TOR",
-        "DET-GRAPH-NETWORK": "NETWORK_BRIDGE_CUTOUT",
-        "DET-GDS-CENTRALITY": "GRAPH_CENTRALITY_HUB",
+        "DET-SOC-SYNC": "SOC_SYNCHRONOUS_ACTIVITY",
+        "DET-NET-VPN-TOR": "NET_VPN_TOR_ANONYMIZATION",
+        "DET-GRAPH-NETWORK": "GRAPH_NETWORK_BRIDGE",
+        "DET-GDS-CENTRALITY": "GRAPH_NETWORK_BRIDGE",
         "DET-CROSS-COLLISION": "CROSS_DOMAIN_COLLISION",
         "DET-ID-DISCREPANCY": "ID_DISCREPANCY",
         "DET-BEHAVIORAL-IF": "BEHAVIORAL_MULTIVARIATE_OUTLIER",
@@ -214,6 +216,13 @@ class SignalNormalizer:
             baseline["baseline_activity_monthly_volume_inr"] = 0.0
             baseline["comparison"] = "Account showed 0 activity for over 90 days prior to sudden high-value tranches"
 
+        elif "HIGH-VALUE-BURST" in det_id or "BURST" in det_id:
+            observations["burst_total_inr"] = features.get("burst_total_inr") or features.get("total_burst_amount", 0.0)
+            observations["burst_count"] = features.get("burst_count") or features.get("transaction_count", 0)
+            observations["burst_avg_inr"] = features.get("burst_avg_inr") or (observations["burst_total_inr"] / max(1, observations["burst_count"]))
+            observations["ratio_over_baseline"] = features.get("ratio_over_baseline") or features.get("velocity_ratio", 4.0)
+            baseline["comparison"] = "Sudden high-velocity transaction spike deviates sharply from baseline customer ticket size"
+
         # Spatial Lenses
         elif "TRAVEL" in det_id:
             imp = entity_data.get("spatial", {}).get("impossible_transitions", [])
@@ -240,6 +249,19 @@ class SignalNormalizer:
             observations["towers"] = towers
             observations["convergence_location"] = towers[0] if towers else "Cell Tower Sector"
             baseline["comparison"] = "Entities recorded at separate base locations converged synchronously at same tower/radius"
+
+        elif "TAILING" in det_id:
+            observations["target_entity"] = features.get("target_entity") or features.get("followed_entity", "Monitored Target")
+            observations["lag_seconds"] = features.get("lag_seconds", 180)
+            observations["sectors_followed"] = features.get("sectors_followed", [])
+            baseline["comparison"] = "Matched trajectory across non-arterial sectors within <300s window indicates targeted surveillance"
+
+        elif "TRAJECTORY" in det_id:
+            route_list = features.get("route", []) or features.get("sectors", [])
+            observations["route"] = route_list
+            observations["route_path"] = features.get("route_path") or (" -> ".join(route_list) if route_list else "Multi-sector corridor")
+            observations["waypoint_count"] = features.get("waypoint_count", len(route_list) or len(locations))
+            baseline["comparison"] = "Multi-sector progressive movement trajectory records transit across operational hubs"
 
         elif "DARKPERIOD" in det_id:
             observations["radio_silence_hours"] = features.get("silence_duration_hours", 6.0)

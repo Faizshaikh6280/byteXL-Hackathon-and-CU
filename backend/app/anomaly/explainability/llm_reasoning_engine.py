@@ -47,20 +47,23 @@ class LLMReasoningEngine:
         locations: List[str],
         detectors: List[str],
         case_relevance: str,
-        relevance_reasons: List[str]
+        relevance_reasons: List[str],
+        related_entities: Optional[List[Dict[str, Any]]] = None,
+        entity_interactions: Optional[List[Dict[str, Any]]] = None
     ) -> Optional[Dict[str, str]]:
         """
         Executes zero-shot forensic synthesis via Qwen 2.5.
-        Returns a dict with {"what_happened", "why_unusual", "why_relevant", "actionable_steps"}
+        Returns a dict with {"headline", "what_happened", "why_unusual", "why_relevant", "actionable_steps"}
         or None if LLM is unreachable/fails.
         """
         client = self._get_client()
         if client is None:
             return None
 
-        # Build clean factual context summary
+        # Build clean factual context summary for all suspects
+        all_entities = (primary_entities or []) + (related_entities or [])
         ents_summary = []
-        for e in primary_entities:
+        for e in all_entities:
             name = e.get("display_name") or e.get("entity_id")
             etype = e.get("entity_type", "Entity")
             phones = e.get("phones", [])
@@ -73,20 +76,32 @@ class LLMReasoningEngine:
             ents_summary.append(f"- {name} ({etype}) {'; '.join(details)}")
         entities_text = "\n".join(ents_summary) if ents_summary else f"- {entity_label}"
 
-        prompt = f"""You are a Senior Cyber Crime Investigator, Forensic Accountant, and Intelligence Analyst.
-Analyze the following verified investigative anomaly detected by automated analytical engines and synthesize professional, law-enforcement-grade forensic reasoning.
+        # Format inter-entity activities and relationships
+        interactions_lines = []
+        if entity_interactions:
+            for item in entity_interactions[:8]:
+                src = item.get("source_entity", "Entity")
+                tgt = item.get("target_entity", "Entity")
+                act = item.get("description", "Activity")
+                interactions_lines.append(f"- {src} -> {act} -> {tgt}")
+        interactions_text = "\n".join(interactions_lines) if interactions_lines else "Direct single-entity or distributed telemetry pattern."
+
+        prompt = f"""You are a Senior Cyber Crime Investigator, Forensic Accountant, and Lead Digital Analyst.
+Analyze the following verified investigative anomaly detected by automated analytical engines and synthesize professional, court-grade forensic reasoning in easy-to-understand plain English.
 
 INVIOLABLE RULES:
-1. STRICT FACTUAL ACCURACY: Do NOT invent fictional names, fictitious dates, or fake transaction amounts. Only refer to the entities, values, and dates explicitly provided below.
-2. PROFESSIONAL INVESTIGATIVE TONE: Plain language suitable for a court dossier or supervisory review.
-3. Respond ONLY with a valid JSON object matching the schema below. No conversational commentary or prefix/suffix.
+1. STRICT FACTUAL ACCURACY: Do NOT invent fictional names, fictitious dates, or fake transaction amounts. Only refer to the suspects, entities, values, and dates explicitly provided below.
+2. PLAIN ENGLISH PARAGRAPHS: Write in clear, professional, direct English that an Investigating Officer, Judge, or Supervisor can immediately grasp. Explain what the anomaly is, who the suspects are, the exact relationships and activities between them, and how the activity manifested in the data.
+3. Respond ONLY with a valid JSON object matching the schema below. No conversational commentary or markdown fencing.
 
 === DETECTED ANOMALY FACTS ===
 Pattern Type: {pattern_id}
 Domain / Category: {category}
 Primary Suspect / Entity: {entity_label}
-Entities Involved:
+Suspects & Entities Involved:
 {entities_text}
+Inter-Entity Activities & Relationships:
+{interactions_text}
 Time Range: {time_range.get('formatted_window') or time_range.get('start') or 'N/A'}
 Locations / Waypoints: {', '.join(locations) if locations else 'N/A'}
 Contributing Detectors: {', '.join(detectors)}
@@ -98,9 +113,10 @@ Case Relevance: {case_relevance} ({'; '.join(relevance_reasons)})
 
 === OUTPUT JSON SCHEMA ===
 {{
-  "what_happened": "Detailed 2-3 sentence factual narrative explaining exactly what actions were detected based strictly on the facts above.",
-  "why_unusual": "2 sentence explanation contrasting this specific behavior against normal civilian baselines.",
-  "why_relevant": "2 sentence explanation of why this finding is critical to the cybercrime case objective and syndicate role.",
+  "headline": "A clear, compelling headline identifying the anomaly pattern, key suspects involved, and central financial amount or telemetry metric (e.g., 'Coordinated Financial Flow: Priya Anand, Nisha Bedi, and Meera Kapoor routed ₹12.5L circular transfer')",
+  "what_happened": "A coherent, easy-to-understand 1-2 paragraph plain English narrative explaining the anomaly: who the suspects/entities are, the exact relationships and activities between them (money transfers, call chains, physical movements, or shared infrastructure), how the activity unfolded in the data, and the current operational status.",
+  "why_unusual": "2-3 sentence plain English explanation contrasting this specific behavior against normal civilian baselines.",
+  "why_relevant": "2-3 sentence plain English explanation of why this finding is critical to the cybercrime case objective and syndicate role.",
   "actionable_steps": "Numbered 1-3 actionable legal or investigative steps for the Investigating Officer under BNSS/CrPC or IT Act."
 }}"""
 
@@ -121,8 +137,13 @@ Case Relevance: {case_relevance} ({'; '.join(relevance_reasons)})
                     lines = lines[:-1]
                 raw_text = "\n".join(lines).strip()
 
+            start_idx = raw_text.find('{')
+            end_idx = raw_text.rfind('}')
+            if start_idx != -1 and end_idx != -1 and end_idx > start_idx:
+                raw_text = raw_text[start_idx:end_idx+1]
+
             parsed = json.loads(raw_text)
-            if isinstance(parsed, dict) and "what_happened" in parsed and "why_unusual" in parsed:
+            if isinstance(parsed, dict) and "what_happened" in parsed:
                 logger.info(f"[LLMReasoningEngine] Qwen 2.5 successfully generated forensic reasoning for {pattern_id}")
                 raw_steps = parsed.get("actionable_steps", "")
                 if isinstance(raw_steps, list):
@@ -131,6 +152,7 @@ Case Relevance: {case_relevance} ({'; '.join(relevance_reasons)})
                     steps_text = str(raw_steps).strip()
 
                 return {
+                    "headline": str(parsed.get("headline", "")).strip(),
                     "what_happened": str(parsed.get("what_happened", "")).strip(),
                     "why_unusual": str(parsed.get("why_unusual", "")).strip(),
                     "why_relevant": str(parsed.get("why_relevant", "")).strip(),
@@ -256,6 +278,21 @@ Case Relevance: {case_relevance} ({'; '.join(relevance_reasons)})
             roles_str = f"Implicated in: {', '.join(s['roles'][:3])}"
             suspects_lines.append(f"- {s['name']} ({s['entity_type']}, ID: {s['entity_id']}): {roles_str} | {'; '.join(details)}")
 
+        # Extract inter-entity interactions across findings
+        case_interactions = []
+        seen_case_keys = set()
+        for f in findings:
+            td = _get(f, "technical_details") or {}
+            interactions = td.get("entity_interactions") or []
+            for item in interactions:
+                key = (item.get("source_entity"), item.get("target_entity"), item.get("description"))
+                if key not in seen_case_keys:
+                    seen_case_keys.add(key)
+                    case_interactions.append(item)
+
+        interactions_lines = [f"- {i['source_entity']} -> {i['description']} -> {i['target_entity']}" for i in case_interactions[:8]]
+        interactions_text = "\n".join(interactions_lines) if interactions_lines else "Direct multi-party transactional, telecom, and spatial connections."
+
         suspects_text = "\n".join(suspects_lines) if suspects_lines else "No specific named suspects identified."
         findings_text = "\n".join(findings_facts[:6])
         evidence_text = "\n".join(f"- {p}" for p in evidence_proof_pool[:6]) if evidence_proof_pool else "Standard transactional and communication records."
@@ -327,6 +364,9 @@ Total Findings: {len(findings)} (from {signals_count} underlying signals)
 Primary Suspects & Linked Entities:
 {suspects_text}
 
+Inter-Entity Activities & Relationships:
+{interactions_text}
+
 Detected Patterns & Findings:
 {findings_text}
 
@@ -336,7 +376,7 @@ Observed Evidence & Proof Points:
 === OUTPUT JSON SCHEMA ===
 {{
   "summary_text": "A concise 2-3 sentence executive synopsis of the syndicate's activity and total investigative findings in plain English.",
-  "what_happened": "A comprehensive, plain-English chronological narrative explaining exactly what happened in this case: who the primary suspects are, what criminal actions were detected (money routing, clandestine communications, travel/colocation), how the scheme unfolded, and the current operational state.",
+  "what_happened": "A comprehensive, plain-English chronological narrative in proper paragraphs explaining exactly what happened in this case: who the primary suspects are, what criminal actions were detected (money routing, clandestine communications, travel/colocation), how the scheme unfolded, and the current operational state.",
   "suspects_involved": [
     {{
       "name": "Suspect or Entity Name",

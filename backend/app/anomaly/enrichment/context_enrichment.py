@@ -31,6 +31,7 @@ class EnrichedContext:
         self.graph_context: Dict[str, Any] = {}
         self.case_context: Dict[str, Any] = {}
         self.baseline_context: Dict[str, Any] = {}
+        self.entity_interactions: List[Dict[str, Any]] = []
 
 
 class ContextEnrichmentEngine:
@@ -286,6 +287,150 @@ class ContextEnrichmentEngine:
             "total_events_in_sequence": len(deduped_events),
             "sequence_steps": timeline_steps
         }
+
+        self._build_entity_interactions(candidate, deduped_events, event_entity_map, enriched)
+
+    def _build_entity_interactions(
+        self,
+        candidate: CandidatePattern,
+        deduped_events: List[Dict[str, Any]],
+        event_entity_map: Dict[str, str],
+        enriched: EnrichedContext
+    ):
+        """Constructs human-readable directed entity interactions and activities connecting suspects."""
+        interactions = []
+        seen_interactions = set()
+
+        # Build name resolver from all resolved entities
+        name_lookup = {}
+        for e in enriched.primary_entities + enriched.related_entities:
+            dname = e.get("display_name")
+            eid = e.get("entity_id")
+            if dname:
+                name_lookup[eid] = dname
+                for ph in e.get("phones", []):
+                    name_lookup[str(ph)] = f"{dname} ({ph})"
+                for acc in e.get("accounts", []):
+                    name_lookup[str(acc)] = f"{dname} ({acc})"
+
+        def resolve(ident: str) -> str:
+            if not ident:
+                return "Unknown Entity"
+            s = str(ident).strip()
+            return name_lookup.get(s, s)
+
+        # 1. From canonical events (transfers, calls, presence, sessions)
+        for ev in deduped_events:
+            domain = ev.get("domain") or ev.get("source_type", "UNKNOWN")
+            event_type = ev.get("event_type", "EVENT")
+            amt = ev.get("financial", {}).get("amount_inr", 0.0)
+            channel = ev.get("financial", {}).get("channel") or ev.get("financial", {}).get("txn_type")
+            counterparty = ev.get("financial", {}).get("counterparty")
+            caller = ev.get("attributes", {}).get("caller") or ev.get("entities", {}).get("phone")
+            callee = ev.get("attributes", {}).get("callee") or ev.get("telemetry", {}).get("destination_ip")
+            dur = ev.get("telemetry", {}).get("duration_seconds") or ev.get("attributes", {}).get("duration_seconds")
+            eid = ev.get("event_id")
+            person_name = event_entity_map.get(eid) or ev.get("entities", {}).get("name")
+
+            if (domain == "BANKING" or event_type in ("TRANSACTION", "TRANSFER")) and amt > 0:
+                src = resolve(person_name or candidate.entity_refs[0])
+                tgt = resolve(counterparty or "Beneficiary Account")
+                ch_str = f" via {channel}" if channel else ""
+                desc = f"Transferred ₹{amt:,.2f}{ch_str}"
+                key = (src, tgt, desc)
+                if key not in seen_interactions:
+                    seen_interactions.add(key)
+                    interactions.append({
+                        "source_entity": src,
+                        "target_entity": tgt,
+                        "interaction_type": "FINANCIAL_TRANSFER",
+                        "description": desc,
+                        "amount_inr": amt,
+                        "timestamp": ev.get("timestamp")
+                    })
+
+            elif domain == "TELECOM" or event_type == "CALL":
+                src = resolve(person_name or caller or candidate.entity_refs[0])
+                tgt = resolve(callee or "Callee")
+                dur_str = f" ({dur}s)" if dur else ""
+                desc = f"Placed call{dur_str}"
+                key = (src, tgt, desc)
+                if key not in seen_interactions:
+                    seen_interactions.add(key)
+                    interactions.append({
+                        "source_entity": src,
+                        "target_entity": tgt,
+                        "interaction_type": "TELECOM_CALL",
+                        "description": desc,
+                        "timestamp": ev.get("timestamp")
+                    })
+
+        # 2. From aggregated pattern observations
+        obs = candidate.aggregated_observations
+        if obs.get("cycle_parties"):
+            parties = obs["cycle_parties"]
+            for i in range(len(parties)):
+                p1 = resolve(parties[i])
+                p2 = resolve(parties[(i + 1) % len(parties)])
+                desc = f"Transferred funds in coordinated circular loop (Cycle Volume: ₹{obs.get('total_cycle_volume_inr', 0):,.2f})"
+                key = (p1, p2, "CIRCULAR_FLOW")
+                if key not in seen_interactions:
+                    seen_interactions.add(key)
+                    interactions.append({
+                        "source_entity": p1,
+                        "target_entity": p2,
+                        "interaction_type": "CIRCULAR_FINANCIAL_FLOW",
+                        "description": desc
+                    })
+
+        if obs.get("converging_entities"):
+            ents = [resolve(e) for e in obs["converging_entities"] if e]
+            loc = obs.get("convergence_location") or "Cell Tower Sector"
+            for i in range(len(ents) - 1):
+                p1, p2 = ents[i], ents[i + 1]
+                desc = f"Co-located / Converged simultaneously at {loc}"
+                key = (p1, p2, "SPATIAL_CONVERGENCE")
+                if key not in seen_interactions:
+                    seen_interactions.add(key)
+                    interactions.append({
+                        "source_entity": p1,
+                        "target_entity": p2,
+                        "interaction_type": "SPATIAL_CONVERGENCE",
+                        "description": desc
+                    })
+
+        if obs.get("shared_entities"):
+            ents = [resolve(e) for e in obs["shared_entities"] if e]
+            infra = obs.get("shared_ip") or obs.get("shared_imei") or obs.get("telegram_group") or "Shared Server"
+            for i in range(len(ents) - 1):
+                p1, p2 = ents[i], ents[i + 1]
+                desc = f"Shared operational infrastructure ({infra})"
+                key = (p1, p2, "SHARED_INFRASTRUCTURE")
+                if key not in seen_interactions:
+                    seen_interactions.add(key)
+                    interactions.append({
+                        "source_entity": p1,
+                        "target_entity": p2,
+                        "interaction_type": "SHARED_INFRASTRUCTURE",
+                        "description": desc
+                    })
+
+        if candidate.pattern_id == "GEO_TAILING" or "TAILING" in candidate.primary_detector_id:
+            t_ent = resolve(obs.get("target_entity") or (enriched.related_entities[0]["display_name"] if enriched.related_entities else "Monitored Target"))
+            s_ent = resolve(candidate.entity_refs[0])
+            lag = obs.get("lag_seconds", 180)
+            desc = f"Followed / Trailed trajectory with {lag}s lag"
+            key = (s_ent, t_ent, "TRAJECTORY_TAILING")
+            if key not in seen_interactions:
+                seen_interactions.add(key)
+                interactions.append({
+                    "source_entity": s_ent,
+                    "target_entity": t_ent,
+                    "interaction_type": "TRAJECTORY_TAILING",
+                    "description": desc
+                })
+
+        enriched.entity_interactions = interactions
 
     def _enrich_spatial_context(
         self,

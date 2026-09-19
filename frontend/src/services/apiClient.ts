@@ -602,6 +602,7 @@ export interface AnomalyFinding {
     display_name: string;
     entity_type: string;
     risk_score?: number;
+    role?: string;
     aliases?: string[];
     phones?: string[];
     accounts?: string[];
@@ -610,6 +611,10 @@ export interface AnomalyFinding {
     entity_id: string;
     display_name: string;
     entity_type: string;
+    role?: string;
+    aliases?: string[];
+    phones?: string[];
+    accounts?: string[];
   }>;
   supportingObservations?: string[];
   supportingSignals?: Array<any>;
@@ -672,6 +677,14 @@ export interface AnomalyFinding {
   canonical_event_refs?: string[];
   evidenceQuality?: string;
   detectedAt?: string;
+  entityInteractions?: Array<{
+    source_entity: string;
+    target_entity: string;
+    interaction_type: string;
+    description: string;
+    amount_inr?: number;
+    timestamp?: string;
+  }>;
 }
 
 export interface AnomalyRunResult {

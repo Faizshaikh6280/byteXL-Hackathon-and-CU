@@ -97,9 +97,12 @@ class PatternMatcher:
             "DET-COMM-SYNC-EPISODE",
             "DET-SPATIAL-CONVERGENCE",
             "DET-SOC-INFRA",
+            "DET-SOC-SYNC",
             "DET-CROSS-COLLISION",
             "DET-ID-DISCREPANCY",
-            "DET-GEO-TRAJECTORY"
+            "DET-GEO-TRAJECTORY",
+            "DET-SPATIAL-TAILING",
+            "DET-SPATIAL-DARKPERIOD"
         }
         if group.primary_signal.detector_id in CORE_DETECTOR_IDS:
             core_det_id = group.primary_signal.detector_id

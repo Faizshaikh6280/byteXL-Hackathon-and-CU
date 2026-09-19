@@ -106,7 +106,15 @@ export default function CommunityGraphViewer({
       });
     });
 
-    graphData.edges.forEach((e: any) => {
+    const nodeLabelMap = new Map(graphData.nodes.map((n: any) => [n.id, n.label || n.properties?.id || n.id]));
+    const validEdges = (graphData.edges || []).filter((e: any) => {
+      if (e.source === e.target) return false;
+      if (e.relationship === 'RESOLVED_TO' || e.relationship === 'OWNS_PHONE') return false;
+      if (nodeLabelMap.get(e.source) === nodeLabelMap.get(e.target)) return false;
+      return true;
+    });
+
+    validEdges.forEach((e: any) => {
       const props = e.properties || {};
       let edgeLabel = e.relationship || '';
       if (props.amount !== undefined && props.amount !== null && props.amount !== '') {

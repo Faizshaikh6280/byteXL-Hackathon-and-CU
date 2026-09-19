@@ -3,9 +3,11 @@ from app.core.config import settings
 
 def resolve_ollama_base_url() -> str:
     """Auto-detect Ollama URL, routing to host.docker.internal when executing inside a Docker container."""
-    base_url = os.getenv("OLLAMA_BASE_URL") or getattr(settings, "OLLAMA_BASE_URL", "http://localhost:11434")
-    if os.path.exists("/.dockerenv") and ("localhost" in base_url or "127.0.0.1" in base_url):
-        return base_url.replace("localhost", "host.docker.internal").replace("127.0.0.1", "host.docker.internal")
+    base_url = os.getenv("OLLAMA_BASE_URL") or getattr(settings, "OLLAMA_BASE_URL", "http://127.0.0.1:11434")
+    if "localhost" in base_url:
+        base_url = base_url.replace("localhost", "127.0.0.1")
+    if os.path.exists("/.dockerenv") and "127.0.0.1" in base_url:
+        return base_url.replace("127.0.0.1", "host.docker.internal")
     return base_url
 
 def get_llm(num_predict: int = 1500, num_ctx: int = 3584):
@@ -24,7 +26,7 @@ def get_llm(num_predict: int = 1500, num_ctx: int = 3584):
             num_ctx=min(num_ctx, 4096),
             num_predict=num_predict,
             keep_alive="24h",
-            client_kwargs={"timeout": 25.0}
+            client_kwargs={"timeout": 90.0}
         )
     else:
         # Google Gemini fallback
