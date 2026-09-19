@@ -374,12 +374,15 @@ export default function GraphTopologyViewer({
       return passesFilter && passesSearch;
     });
     
+    const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
     const nodeLabelMap = new Map(filteredNodes.map(n => [n.id, n.label || n.properties?.id || n.id]));
-    const filteredEdges = graphData.edges.filter(e => {
+    const filteredEdges = (graphData.edges || []).filter(e => {
       if (!filteredNodeIds.has(e.source) || !filteredNodeIds.has(e.target)) return false;
       if (e.source === e.target) return false;
       if (e.relationship === 'RESOLVED_TO' || e.relationship === 'OWNS_PHONE') return false;
-      if (nodeLabelMap.get(e.source) === nodeLabelMap.get(e.target)) return false;
+      const sLbl = nodeLabelMap.get(e.source);
+      const tLbl = nodeLabelMap.get(e.target);
+      if (sLbl && tLbl && sLbl === tLbl) return false;
       return true;
     });
 

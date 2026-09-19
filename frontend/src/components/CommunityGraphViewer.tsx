@@ -106,11 +106,15 @@ export default function CommunityGraphViewer({
       });
     });
 
+    const nodeIds = new Set((graphData.nodes || []).map((n: any) => n.id));
     const nodeLabelMap = new Map(graphData.nodes.map((n: any) => [n.id, n.label || n.properties?.id || n.id]));
     const validEdges = (graphData.edges || []).filter((e: any) => {
+      if (!nodeIds.has(e.source) || !nodeIds.has(e.target)) return false;
       if (e.source === e.target) return false;
       if (e.relationship === 'RESOLVED_TO' || e.relationship === 'OWNS_PHONE') return false;
-      if (nodeLabelMap.get(e.source) === nodeLabelMap.get(e.target)) return false;
+      const sLbl = nodeLabelMap.get(e.source);
+      const tLbl = nodeLabelMap.get(e.target);
+      if (sLbl && tLbl && sLbl === tLbl) return false;
       return true;
     });
 
