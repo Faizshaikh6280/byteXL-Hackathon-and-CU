@@ -67,36 +67,10 @@ class FindingSynthesisEngine:
         # 2. Dynamic, Actionable Title with Real Names and Concrete Metrics
         title = self._generate_investigative_title(candidate, pattern_def, obs, entity_label, prim_ent, enriched)
 
-        # 3. Layer 1-3 Narrative Generation: Attempt Local LLM (Qwen 2.5) first with deterministic fallback
-        from app.anomaly.explainability.llm_reasoning_engine import llm_reasoning_engine
-        llm_res = llm_reasoning_engine.generate_reasoning(
-            pattern_id=candidate.pattern_id,
-            category=candidate.category,
-            entity_label=entity_label,
-            primary_entities=enriched.primary_entities,
-            observations=obs,
-            metrics=candidate.metrics,
-            time_range={"formatted_window": f"{candidate.time_start or 'N/A'} to {candidate.time_end or 'N/A'}"},
-            locations=candidate.locations,
-            detectors=candidate.contributing_detector_ids,
-            case_relevance=case_relevance.value,
-            relevance_reasons=relevance_reasons,
-            related_entities=enriched.related_entities,
-            entity_interactions=enriched.entity_interactions
-        )
-
-        if llm_res and llm_res.get("what_happened"):
-            if llm_res.get("headline"):
-                title = llm_res["headline"]
-            what_happened = llm_res["what_happened"]
-            why_unusual = llm_res.get("why_unusual") or self._generate_why_unusual(candidate, pattern_def, obs, baseline, entity_label)
-            why_relevant = llm_res.get("why_relevant") or self._generate_why_relevant(case_relevance, relevance_reasons, candidate, entity_label, prim_ent)
-            if llm_res.get("actionable_steps"):
-                why_relevant += f"\n\nRecommended Next Steps:\n{llm_res['actionable_steps']}"
-        else:
-            what_happened = self._generate_what_happened(candidate, pattern_def, obs, entity_label, prim_ent, enriched)
-            why_unusual = self._generate_why_unusual(candidate, pattern_def, obs, baseline, entity_label)
-            why_relevant = self._generate_why_relevant(case_relevance, relevance_reasons, candidate, entity_label, prim_ent)
+        # 3. Layer 1-3 Narrative Generation: Dynamic, factual plain-language forensic narratives
+        what_happened = self._generate_what_happened(candidate, pattern_def, obs, entity_label, prim_ent, enriched)
+        why_unusual = self._generate_why_unusual(candidate, pattern_def, obs, baseline, entity_label)
+        why_relevant = self._generate_why_relevant(case_relevance, relevance_reasons, candidate, entity_label, prim_ent)
 
         # 6. Supporting Observations Bullet Points
         supporting_observations = self._build_observations_bullets(candidate, obs, enriched, prim_ent)
@@ -240,7 +214,13 @@ class FindingSynthesisEngine:
             return f"Cross-Domain Activity Burst: Suspects {names_str} synchronized banking, telecom & IP traffic{delta_str}"
 
         elif pid in ("GEO_TRAJECTORY", "GEOSPATIAL_TRAJECTORY"):
-            route = obs.get("route_path") or (" -> ".join(obs.get("route", []))) or "multi-sector route"
+            stops = obs.get("route", [])
+            if len(stops) > 3:
+                route = f"{stops[0]} -> ... -> {stops[-1]} ({len(stops)} waypoints)"
+            elif stops:
+                route = " -> ".join(stops)
+            else:
+                route = obs.get("route_path") or "multi-sector route"
             return f"Progressive Movement Trajectory: {entity_label} traversed {route}"
 
         elif pid == "FIN_ATM_CASHOUT":

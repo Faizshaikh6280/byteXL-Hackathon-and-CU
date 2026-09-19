@@ -689,9 +689,10 @@ export interface AnomalyFinding {
 
 export interface AnomalyRunResult {
   status: string;
-  run_id: string;
-  case_id: string;
-  summary: {
+  run_id?: string;
+  case_id?: string;
+  message?: string;
+  summary?: {
     total_entities_analyzed: number;
     total_findings: number;
     total_signals_generated?: number;
@@ -701,8 +702,8 @@ export interface AnomalyRunResult {
     low_count: number;
     duration_seconds: number;
   };
-  detectors_executed: string[];
-  detectors_failed: string[];
+  detectors_executed?: string[];
+  detectors_failed?: string[];
 }
 
 async function authFetch(url: string, options?: RequestInit): Promise<Response> {

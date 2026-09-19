@@ -239,7 +239,7 @@ class AnomalyFindingModel(Base):
     entity_type = Column(String(64), nullable=False, index=True)
     fingerprint = Column(String(64), index=True, nullable=False)
 
-    title = Column(String(255), nullable=False)
+    title = Column(Text, nullable=False)
     severity = Column(String(32), default="MEDIUM", index=True, nullable=False)  # LOW, MEDIUM, HIGH, CRITICAL
     unified_score = Column(Float, default=0.0, index=True, nullable=False)
     confidence = Column(Float, default=1.0, nullable=False)

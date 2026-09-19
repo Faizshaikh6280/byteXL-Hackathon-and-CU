@@ -106,12 +106,15 @@ export default function ProcessingPipelineView({ onNavigateToTab }: ProcessingPi
     {
       index: 5,
       title: 'Multi-Engine Anomaly Intelligence',
-      desc: 'Executes 21 analytical engines (Isolation Forest, Rules, Centrality, ST-DBSCAN, Structuring, Tor/VPN, RGCN, TGN) with unified evidence fusion.',
+      desc: 'Executes 19 analytical pattern engines (Structuring, ATM Cash-Out, Coordinated Flow, Impossible Travel, Convergence, Tailing, Digital Footprint) with unified evidence fusion.',
       icon: ShieldAlert,
-      actionName: 'Run 21 Engines',
+      actionName: 'Run 19 Engines',
       runAction: async () => {
-        addLog('Running 21-Engine Anomaly Discovery across MinIO, PostgreSQL, and Neo4j...');
+        addLog('Running 19-Engine Anomaly Discovery across MinIO, PostgreSQL, and Neo4j...');
         const res = await apiClient.runAnomalyAnalysis(activeCase?.case_id);
+        if (res.result?.status === 'error') {
+          throw new Error(res.result?.message || 'Multi-engine analysis failed');
+        }
         const summary = res.result?.summary;
         addLog(`Multi-Engine Complete in ${summary?.duration_seconds || 0}s! Found ${summary?.total_findings || 0} unified findings (${summary?.critical_count || 0} Critical).`);
       }
