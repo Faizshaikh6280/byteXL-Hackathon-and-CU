@@ -1,0 +1,16 @@
+record_id,name,dob,phone,email,id_number,bank_account
+KYC-001-0,Arjun Malhotra,1987-03-14,9811001001,arjun.malhotra@mail.test,ID001,BANK1001
+KYC-001-1,Arjun Malhotra ,1987-03-14,9811001001,arjun.malhotra@mail.test,ID001,BANK1001-ALT1
+KYC-002-0,Meera Kapoor,1990-07-22,9811001002,meera.kapoor@mail.test,ID002,BANK1002
+KYC-002-1,Meera Kappor,1990-07-22,9811001002,meera.kapoor@mail.test,ID002,BANK1002-ALT1
+KYC-003-0,Dev Khanna,1985-11-09,9811001003,dev.khanna@mail.test,ID003,BANK1003
+KYC-003-1,Dev Khanna ,1985-11-09,9811001003,dev.khanna@mail.test,ID003,BANK1003-ALT1
+KYC-004-0,Nisha Bedi,1992-01-31,9811001004,nisha.bedi@mail.test,ID004,BANK1004
+KYC-004-1,Nisha Bedi,1992-01-31,9811001004,nisha.bedi@mail.test,ID004,BANK1004-ALT1
+KYC-005-0,Rohit Sethi,1989-06-18,9811001005,rohit.sethi@mail.test,ID005,BANK1005
+KYC-005-1,Rohit Sethi,1989-06-18,9811001005,rohit.sethi@mail.test,ID005,BANK1005-ALT1
+KYC-006-0,Karan Arora,1986-09-27,9811001006,karan.arora@mail.test,ID006,BANK1006
+KYC-007-0,Tanya Joshi,1994-02-11,9811001007,tanya.joshi@mail.test,ID007,BANK1007
+KYC-008-0,Ishaan Verma,1988-12-05,9811001008,ishaan.verma@mail.test,ID008,BANK1008
+KYC-009-0,Priya Anand,1991-05-25,9811001009,priya.anand@mail.test,ID009,BANK1009
+KYC-010-0,Sameer Gill,1984-10-12,9811001010,sameer.gill@mail.test,ID010,BANK1010

@@ -1,0 +1,126 @@
+{
+  "case_id": "INV-2026-BLACK-CIRCUIT",
+  "scale": {
+    "minimum_uncompressed_bytes": "1 MB",
+    "purpose": "stress test; thousands of records per major source"
+  },
+  "expected_entities": [
+    {
+      "id": "ENT-001",
+      "name": "Arjun Malhotra",
+      "alias": "Arjun Malhotra ",
+      "phone": "9811001001",
+      "accounts": [
+        "BANK1001",
+        "BANK1001-ALT1"
+      ]
+    },
+    {
+      "id": "ENT-002",
+      "name": "Meera Kapoor",
+      "alias": "Meera Kappor",
+      "phone": "9811001002",
+      "accounts": [
+        "BANK1002",
+        "BANK1002-ALT1"
+      ]
+    },
+    {
+      "id": "ENT-003",
+      "name": "Dev Khanna",
+      "alias": "Dev Khanna ",
+      "phone": "9811001003",
+      "accounts": [
+        "BANK1003",
+        "BANK1003-ALT1"
+      ]
+    },
+    {
+      "id": "ENT-004",
+      "name": "Nisha Bedi",
+      "phone": "9811001004",
+      "accounts": [
+        "BANK1004",
+        "BANK1004-ALT1"
+      ]
+    },
+    {
+      "id": "ENT-005",
+      "name": "Rohit Sethi",
+      "phone": "9811001005",
+      "accounts": [
+        "BANK1005",
+        "BANK1005-ALT1"
+      ]
+    }
+  ],
+  "expected_findings": [
+    {
+      "title": "Repeated Five-Entity Financial Cycle",
+      "type": "FINANCIAL_NETWORK",
+      "entities": "ENT-001..005",
+      "evidence": "bank activity days 12-20 and 24-27",
+      "result": "recurring directed cycle with materially higher late-period values"
+    },
+    {
+      "title": "High-Value Transaction Burst",
+      "type": "FINANCIAL_ANOMALY",
+      "entities": "ENT-001..005",
+      "evidence": "late-period bank transactions",
+      "result": "unusual amount/velocity relative to background"
+    },
+    {
+      "title": "Repeated Multi-Entity Spatial Convergence",
+      "type": "SPATIO_TEMPORAL",
+      "entities": "ENT-001..004",
+      "evidence": "Sector 22 records days 12-20 and 24-27",
+      "result": "repeated tight geographic co-occurrence"
+    },
+    {
+      "title": "Recurring Synchronized Communication Episodes",
+      "type": "COMMUNICATION",
+      "entities": "ENT-001..005",
+      "evidence": "engineered CDR sequence",
+      "result": "repeated short-window call sequence"
+    },
+    {
+      "title": "Shared Digital Infrastructure Co-Occurrence",
+      "type": "CROSS_DOMAIN",
+      "entities": "ENT-001..005",
+      "evidence": "185.44.77.9 + LOTUS-OPS",
+      "result": "repeated cross-domain infrastructure co-occurrence"
+    },
+    {
+      "title": "Device / Identity Discrepancy",
+      "type": "IDENTITY_DISCREPANCY",
+      "entities": "ENT-001",
+      "evidence": "unexpected IMEI records around Aug 29",
+      "result": "temporary identifier mismatch"
+    },
+    {
+      "title": "Cross-Domain Activity Burst",
+      "type": "MULTI_LENS",
+      "entities": "ENT-001..005",
+      "evidence": "financial/CDR/IPDR/social/geo overlap",
+      "result": "temporally aligned elevated activity across independent domains"
+    },
+    {
+      "title": "Arjun Multi-Location Trajectory",
+      "type": "GEOSPATIAL_TRAJECTORY",
+      "entities": "ENT-001",
+      "evidence": "final-day geo records",
+      "result": "Sector 17 -> Sector 22 -> Industrial Area -> Panchkula"
+    }
+  ],
+  "must_not_claim": [
+    "guilt",
+    "criminal proceeds",
+    "money laundering",
+    "conspiracy confirmed",
+    "VPN proves evasion",
+    "shared IP proves common control",
+    "same cell proves physical meeting",
+    "account takeover confirmed"
+  ],
+  "success_criterion": "Thousands of raw events/signals should collapse into a small coherent set of evidence-bound findings, not hundreds of duplicate person-level findings."
+}

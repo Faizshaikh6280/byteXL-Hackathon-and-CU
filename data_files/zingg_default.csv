@@ -1,0 +1,2 @@
+record_id,source_type,full_name,phone_number,imsi,imei,account_number,social_handle,ip_address,source_port,address,phone,national_id,email,device_id
+REC-00001,TELECOM,,+919999000022,,,,,,,,+919999000022,,,

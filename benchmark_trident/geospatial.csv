@@ -1,0 +1,10 @@
+geo_id,timestamp,name,phone,latitude,longitude,place
+GEO001,2026-08-25 20:30:00,Vikram Malhotra,9871100223,30.7410,76.7850,Sector 17 City Centre
+GEO002,2026-08-25 20:45:00,Vikram Malhotra,9871100223,30.7320,76.7720,Sector 22 Aroma Chowk
+GEO003,2026-08-25 21:00:00,Sameer Khan,9899900112,30.7270,76.7600,Sector 35 Hotel Corridor
+GEO004,2026-08-25 21:15:00,Vikram Malhotra,9871100223,30.7225,76.7682,Sector 34 Sub-City Centre
+GEO005,2026-08-25 21:18:00,Sameer Khan,9899900112,30.7224,76.7680,Sector 34 Sub-City Centre
+GEO006,2026-08-25 21:21:00,Vikram Malhotra,9871100223,30.7226,76.7683,Sector 34 ATM Kiosk
+GEO007,2026-08-25 21:35:00,Vikram Malhotra,9871100223,30.7020,76.7920,Tribune Chowk Rotary
+GEO008,2026-08-25 21:40:00,Sameer Khan,9899900112,30.7022,76.7925,Tribune Chowk
+GEO009,2026-08-25 21:55:00,Vikram Malhotra,9871100223,30.6900,76.8120,Hallo Majra Chowk Airport Road

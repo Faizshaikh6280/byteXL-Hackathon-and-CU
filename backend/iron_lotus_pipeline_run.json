@@ -1,0 +1,3266 @@
+{
+  "case_id": "CASE-DC7FA687",
+  "profiles": [
+    {
+      "z_cluster_id": "CLUSTER_001",
+      "case_id": "CASE-DC7FA687",
+      "primary_name": "Aarav Sharma",
+      "known_aliases": [
+        "Aarav Sharm"
+      ],
+      "known_phones": [
+        "+919876501101"
+      ],
+      "known_accounts": [
+        "BANK001",
+        "BANK002"
+      ],
+      "associated_emails": [
+        "aarav.sharma91@mail.test",
+        "aarav.s91@mail.test"
+      ],
+      "known_addresses": [
+        "Sector 22 Market",
+        "Industrial Area",
+        "Sector 17",
+        "Sector 22",
+        "Chandigarh",
+        "Sector 22, Chandigarh",
+        "Sector 22 Chandigarh",
+        "Panchkula Border"
+      ],
+      "national_ids": [
+        "DL-CHD-8821"
+      ],
+      "social_handles": [],
+      "risk_score": 0.8,
+      "method": "case_deterministic_er",
+      "last_updated": "2026-09-05T09:47:44.932473+00:00"
+    },
+    {
+      "z_cluster_id": "CLUSTER_002",
+      "case_id": "CASE-DC7FA687",
+      "primary_name": "Riya Mehta",
+      "known_aliases": [],
+      "known_phones": [
+        "+919876502202"
+      ],
+      "known_accounts": [
+        "BANK003"
+      ],
+      "associated_emails": [
+        "riya.mehta@mail.test"
+      ],
+      "known_addresses": [
+        "Sector 22 Market",
+        "Zirakpur",
+        "Chandigarh"
+      ],
+      "national_ids": [
+        "DL-PB-4412"
+      ],
+      "social_handles": [],
+      "risk_score": 0.35,
+      "method": "case_deterministic_er",
+      "last_updated": "2026-09-05T09:47:44.939306+00:00"
+    },
+    {
+      "z_cluster_id": "CLUSTER_003",
+      "case_id": "CASE-DC7FA687",
+      "primary_name": "Kabir Singh",
+      "known_aliases": [],
+      "known_phones": [
+        "+919876503303"
+      ],
+      "known_accounts": [
+        "BANK004"
+      ],
+      "associated_emails": [
+        "kabir.singh@mail.test"
+      ],
+      "known_addresses": [
+        "Mohali Phase 7",
+        "Phase 7 Mohali",
+        "Mohali"
+      ],
+      "national_ids": [
+        "DL-PB-5513"
+      ],
+      "social_handles": [],
+      "risk_score": 0.35,
+      "method": "case_deterministic_er",
+      "last_updated": "2026-09-05T09:47:44.943940+00:00"
+    },
+    {
+      "z_cluster_id": "CLUSTER_004",
+      "case_id": "CASE-DC7FA687",
+      "primary_name": "Neha Kapoor",
+      "known_aliases": [],
+      "known_phones": [
+        "+919876504404"
+      ],
+      "known_accounts": [
+        "BANK005"
+      ],
+      "associated_emails": [
+        "neha.kapoor@mail.test"
+      ],
+      "known_addresses": [
+        "Sector 22 Market",
+        "Sector 35 Chandigarh",
+        "Chandigarh"
+      ],
+      "national_ids": [
+        "DL-CHD-7744"
+      ],
+      "social_handles": [],
+      "risk_score": 0.35,
+      "method": "case_deterministic_er",
+      "last_updated": "2026-09-05T09:47:44.949298+00:00"
+    },
+    {
+      "z_cluster_id": "CLUSTER_005",
+      "case_id": "CASE-DC7FA687",
+      "primary_name": "Vikram Bedi",
+      "known_aliases": [],
+      "known_phones": [
+        "+919876505505"
+      ],
+      "known_accounts": [
+        "BANK006"
+      ],
+      "associated_emails": [
+        "vikram.bedi@mail.test"
+      ],
+      "known_addresses": [
+        "Panchkula"
+      ],
+      "national_ids": [
+        "DL-HR-6677"
+      ],
+      "social_handles": [],
+      "risk_score": 0.35,
+      "method": "case_deterministic_er",
+      "last_updated": "2026-09-05T09:47:44.964399+00:00"
+    },
+    {
+      "z_cluster_id": "CLUSTER_006",
+      "case_id": "CASE-DC7FA687",
+      "primary_name": "Samar Joshi",
+      "known_aliases": [],
+      "known_phones": [
+        "+919876506606"
+      ],
+      "known_accounts": [
+        "BANK007"
+      ],
+      "associated_emails": [
+        "samar.joshi@mail.test"
+      ],
+      "known_addresses": [
+        "Sector 20 Chandigarh",
+        "Chandigarh"
+      ],
+      "national_ids": [
+        "DL-CHD-9090"
+      ],
+      "social_handles": [],
+      "risk_score": 0.35,
+      "method": "case_deterministic_er",
+      "last_updated": "2026-09-05T09:47:44.967431+00:00"
+    },
+    {
+      "z_cluster_id": "CLUSTER_007",
+      "case_id": "CASE-DC7FA687",
+      "primary_name": "Aman Verma",
+      "known_aliases": [],
+      "known_phones": [
+        "+919876507707"
+      ],
+      "known_accounts": [
+        "BANK008"
+      ],
+      "associated_emails": [
+        "aman.verma@mail.test"
+      ],
+      "known_addresses": [
+        "Kharar"
+      ],
+      "national_ids": [
+        "DL-PB-8181"
+      ],
+      "social_handles": [],
+      "risk_score": 0.35,
+      "method": "case_deterministic_er",
+      "last_updated": "2026-09-05T09:47:44.969333+00:00"
+    }
+  ],
+  "nodes_count": 37,
+  "edges_count": 48,
+  "findings": [
+    {
+      "id": "FINDING-3C4A77FE-9F72EE",
+      "entityId": "CLUSTER_003",
+      "entityType": "Person",
+      "type": "FIN_COORDINATED_FLOW",
+      "category": "FINANCIAL",
+      "patternType": "FIN_COORDINATED_FLOW",
+      "severity": "CRITICAL",
+      "score": 92.0,
+      "status": "DETECTED",
+      "title": "Coordinated Financial Flow",
+      "whatHappened": "Recurring four-party directed cycle; Aug 28 burst totals INR 1,250,000.\n\n[CASE SUMMARY FOR INVESTIGATING OFFICER]:\nFour suspects (Kabir Singh, Riya Mehta, Neha Kapoor, Aarav Sharma) transferred funds in a continuous circular loop among their accounts. On 28 Aug (22:05-22:54), \u20b912,50,000 was moved in rapid succession: Kabir Singh (BANK004) -> Riya Mehta (BANK003) [\u20b93.20L] -> Neha Kapoor (BANK005) [\u20b93.15L] -> Aarav Sharma (BANK001) [\u20b93.10L] -> back to Kabir Singh (BANK004) [\u20b93.05L] within 50 minutes. Identical circular transfers were also executed on 26 and 27 Aug, totaling \u20b918,34,000 across 8 transactions.",
+      "whyUnusual": "Directed closed-loop circular financial flow across multiple distinct entities deviates from standard commercial settlements.\n\n[WHY THIS IS SUSPICIOUS / \u0905\u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0939\u094b\u0928\u0947 \u0915\u093e \u0915\u093e\u0930\u0923]:\nIn ordinary commerce, money moves linearly from buyer to seller. In this case, \u20b912,50,000 moved through four distinct accounts only to return to the originator's account within 50 minutes. This circular movement is characteristic of layering to create artificial transaction history and obscure the original source of funds.",
+      "whyRelevant": "The circular transaction route and high-value burst directly link the primary accounts into an organized transfer cycle.\n\n[RECOMMENDED POLICE ACTION / \u091c\u093e\u0902\u091a \u0905\u0927\u093f\u0915\u093e\u0930\u0940 \u0915\u0947 \u0932\u093f\u090f \u0915\u093e\u0930\u094d\u092f\u0935\u093e\u0939\u0940]:\n1. Freeze bank accounts BANK001, BANK002, BANK003, BANK004, BANK005 under Section 102 CrPC / Section 106 BNSS.\n2. Issue Section 91 CrPC / Section 94 BNSS notices to banks for account opening forms, KYC records, and IP login logs.",
+      "caseRelevance": "HIGH",
+      "investigativePriority": "CRITICAL",
+      "primaryEntities": [
+        {
+          "entity_id": "CLUSTER_003",
+          "display_name": "Kabir Singh",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876503303"
+          ],
+          "accounts": [
+            "BANK004"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_001",
+          "display_name": "Aarav Sharma",
+          "entity_type": "Person",
+          "risk_score": 0.8,
+          "aliases": [
+            "Aarav Sharm"
+          ],
+          "phones": [
+            "+919876501101"
+          ],
+          "accounts": [
+            "BANK001",
+            "BANK002"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_004",
+          "display_name": "Neha Kapoor",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876504404"
+          ],
+          "accounts": [
+            "BANK005"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_002",
+          "display_name": "Riya Mehta",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876502202"
+          ],
+          "accounts": [
+            "BANK003"
+          ],
+          "social_handles": []
+        }
+      ],
+      "relatedEntities": [],
+      "supportingObservations": [
+        "Identified Suspect: Kabir Singh",
+        "Linked Account: BANK004",
+        "Primary Mobile: +919876503303",
+        "Burst Transaction Volume: \u20b91,250,000.00 on Aug 28 (Total Cycle: \u20b91,834,000.00)",
+        "Account Inactivity: Zero customer transactions for 90 continuous days before burst",
+        "Evidentiary Basis: 8 verified records corroborated across Banking, Cross_Domain"
+      ],
+      "detectorSummary": [
+        {
+          "detector_id": "DET-FIN-COORDINATED-FLOW",
+          "name": "Coordinated Financial Flow",
+          "domain": "BANKING",
+          "score": 88.0,
+          "confidence": 0.92,
+          "status": "FLAGGED",
+          "observations": {
+            "cycle_parties": [
+              "BANK004",
+              "BANK001",
+              "BANK003"
+            ],
+            "cycle_length": 3,
+            "aug28_burst_total_inr": 1250000.0,
+            "total_cycle_volume_inr": 1834000.0
+          }
+        },
+        {
+          "detector_id": "DET-FIN-COORDINATED-FLOW",
+          "name": "Coordinated Financial Flow",
+          "domain": "BANKING",
+          "score": 88.0,
+          "confidence": 0.92,
+          "status": "FLAGGED",
+          "observations": {
+            "cycle_parties": [
+              "BANK004",
+              "BANK001",
+              "BANK003"
+            ],
+            "cycle_length": 3,
+            "aug28_burst_total_inr": 1250000.0,
+            "total_cycle_volume_inr": 1834000.0
+          }
+        },
+        {
+          "detector_id": "DET-FIN-COORDINATED-FLOW",
+          "name": "Coordinated Financial Flow",
+          "domain": "BANKING",
+          "score": 88.0,
+          "confidence": 0.92,
+          "status": "FLAGGED",
+          "observations": {
+            "cycle_parties": [
+              "BANK004",
+              "BANK001",
+              "BANK003"
+            ],
+            "cycle_length": 3,
+            "aug28_burst_total_inr": 1250000.0,
+            "total_cycle_volume_inr": 1834000.0
+          }
+        },
+        {
+          "detector_id": "DET-FIN-COORDINATED-FLOW",
+          "name": "Coordinated Financial Flow",
+          "domain": "BANKING",
+          "score": 88.0,
+          "confidence": 0.92,
+          "status": "FLAGGED",
+          "observations": {
+            "cycle_parties": [
+              "BANK004",
+              "BANK001",
+              "BANK003"
+            ],
+            "cycle_length": 3,
+            "aug28_burst_total_inr": 1250000.0,
+            "total_cycle_volume_inr": 1834000.0
+          }
+        },
+        {
+          "detector_id": "DET-FIN-DORMANT",
+          "name": "Dormant Account Capitalization Spike",
+          "domain": "BANKING",
+          "score": 63.5,
+          "confidence": 0.85,
+          "status": "FLAGGED",
+          "observations": {
+            "dormant_days": 90,
+            "sudden_volume_inr": 0.0,
+            "sudden_txns_count": 0
+          }
+        },
+        {
+          "detector_id": "DET-FIN-DORMANT",
+          "name": "Dormant Account Capitalization Spike",
+          "domain": "BANKING",
+          "score": 61.3,
+          "confidence": 0.85,
+          "status": "FLAGGED",
+          "observations": {
+            "dormant_days": 90,
+            "sudden_volume_inr": 0.0,
+            "sudden_txns_count": 0
+          }
+        },
+        {
+          "detector_id": "DET-FIN-DORMANT",
+          "name": "Dormant Account Capitalization Spike",
+          "domain": "BANKING",
+          "score": 61.2,
+          "confidence": 0.85,
+          "status": "FLAGGED",
+          "observations": {
+            "dormant_days": 90,
+            "sudden_volume_inr": 0.0,
+            "sudden_txns_count": 0
+          }
+        },
+        {
+          "detector_id": "DET-FIN-DORMANT",
+          "name": "Dormant Account Capitalization Spike",
+          "domain": "BANKING",
+          "score": 60.2,
+          "confidence": 0.85,
+          "status": "FLAGGED",
+          "observations": {
+            "dormant_days": 90,
+            "sudden_volume_inr": 0.0,
+            "sudden_txns_count": 0
+          }
+        },
+        {
+          "detector_id": "DET-GRAPH-NETWORK",
+          "name": "Graph Cut-Out / Bridge Node Anomaly",
+          "domain": "CROSS_DOMAIN",
+          "score": 50.0,
+          "confidence": 0.9,
+          "status": "FLAGGED",
+          "observations": {
+            "betweenness_centrality": 0.2875,
+            "degree": 54,
+            "pagerank": 0.0555,
+            "community_id": 8
+          }
+        },
+        {
+          "detector_id": "DET-BEHAVIORAL-IF",
+          "name": "Behavioral Deviation Detected",
+          "domain": "CROSS_DOMAIN",
+          "score": 100.0,
+          "confidence": 0.88,
+          "status": "FLAGGED",
+          "observations": {
+            "native_metric": {
+              "call_count": 5.0,
+              "unique_contacts": 2.0,
+              "avg_call_duration": 257.4,
+              "night_activity_ratio": 0.0,
+              "unique_imeis": 2.0,
+              "transaction_count": 6.0,
+              "total_volume_inr": 676850.0,
+              "max_transaction_inr": 320000.0,
+              "inflow_outflow_ratio": 1.0,
+              "total_distance_km": 7.61,
+              "max_speed_kmh": 7.5,
+              "session_count": 7.0
+            }
+          }
+        }
+      ],
+      "reasons": [
+        "Identified Suspect: Kabir Singh",
+        "Linked Account: BANK004",
+        "Primary Mobile: +919876503303",
+        "Burst Transaction Volume: \u20b91,250,000.00 on Aug 28 (Total Cycle: \u20b91,834,000.00)",
+        "Account Inactivity: Zero customer transactions for 90 continuous days before burst",
+        "Evidentiary Basis: 8 verified records corroborated across Banking, Cross_Domain"
+      ],
+      "metrics": {
+        "cycle_parties": [
+          "BANK004",
+          "BANK001",
+          "BANK003"
+        ],
+        "cycle_length": 3,
+        "aug28_burst_total_inr": 1250000.0,
+        "total_cycle_volume_inr": 1834000.0,
+        "cycle_events_count": 8,
+        "total_volume_inr": 676850.0,
+        "transaction_count": 6.0,
+        "degree": 54,
+        "betweenness_centrality": 0.2875,
+        "pagerank": 0.0555,
+        "community_id": 8,
+        "neighbors_count": 54,
+        "call_count": 5.0,
+        "unique_contacts": 2.0,
+        "avg_call_duration": 257.4,
+        "night_activity_ratio": 0.0,
+        "unique_imeis": 2.0,
+        "max_transaction_inr": 320000.0,
+        "inflow_outflow_ratio": 1.0,
+        "total_distance_km": 7.61,
+        "max_speed_kmh": 7.5,
+        "session_count": 7.0
+      },
+      "timelineContext": {
+        "start_time": "2026-08-26T21:02:00Z",
+        "end_time": "2026-08-28T22:54:00Z",
+        "total_events_in_sequence": 8,
+        "sequence_steps": [
+          {
+            "step_index": 1,
+            "timestamp": "2026-08-26T21:02:00Z",
+            "time_offset": "+0m",
+            "domain": "BANKING",
+            "description": "Aarav Sharma transferred \u20b9150,000.00 to BANK003 via TRANSFER (Chandigarh)",
+            "event_id": "B010"
+          },
+          {
+            "step_index": 2,
+            "timestamp": "2026-08-26T21:18:00Z",
+            "time_offset": "+16m",
+            "domain": "BANKING",
+            "description": "Riya Mehta transferred \u20b9147,000.00 to BANK004 via TRANSFER (Zirakpur)",
+            "event_id": "B011"
+          },
+          {
+            "step_index": 3,
+            "timestamp": "2026-08-27T21:31:00Z",
+            "time_offset": "+1469m",
+            "domain": "BANKING",
+            "description": "Kabir Singh transferred \u20b9145,000.00 to BANK005 via TRANSFER (Mohali)",
+            "event_id": "B012"
+          },
+          {
+            "step_index": 4,
+            "timestamp": "2026-08-27T21:48:00Z",
+            "time_offset": "+1486m",
+            "domain": "BANKING",
+            "description": "Neha Kapoor transferred \u20b9142,000.00 to BANK001 via TRANSFER (Chandigarh)",
+            "event_id": "B013"
+          },
+          {
+            "step_index": 5,
+            "timestamp": "2026-08-28T22:05:00Z",
+            "time_offset": "+2943m",
+            "domain": "BANKING",
+            "description": "Aarav Sharma transferred \u20b9320,000.00 to BANK003 via TRANSFER (Chandigarh)",
+            "event_id": "B014"
+          },
+          {
+            "step_index": 6,
+            "timestamp": "2026-08-28T22:19:00Z",
+            "time_offset": "+2957m",
+            "domain": "BANKING",
+            "description": "Riya Mehta transferred \u20b9315,000.00 to BANK004 via TRANSFER (Zirakpur)",
+            "event_id": "B015"
+          },
+          {
+            "step_index": 7,
+            "timestamp": "2026-08-28T22:36:00Z",
+            "time_offset": "+2974m",
+            "domain": "BANKING",
+            "description": "Kabir Singh transferred \u20b9310,000.00 to BANK005 via TRANSFER (Mohali)",
+            "event_id": "B016"
+          },
+          {
+            "step_index": 8,
+            "timestamp": "2026-08-28T22:54:00Z",
+            "time_offset": "+2992m",
+            "domain": "BANKING",
+            "description": "Neha Kapoor transferred \u20b9305,000.00 to BANK001 via TRANSFER (Chandigarh)",
+            "event_id": "B017"
+          }
+        ]
+      },
+      "graphContext": {
+        "focused_entity": "CLUSTER_003",
+        "structural_role": "Network Cut-Out Bridge",
+        "role_description": "Entity operates as a structural bridge (Betweenness: 0.287) mediating communications and transactions between otherwise isolated sub-groups.",
+        "degree": 54,
+        "betweenness_centrality": 0.2875,
+        "pagerank": 0.0555,
+        "community_id": 8,
+        "subgraph_entities": [
+          "CLUSTER_003",
+          "CLUSTER_001",
+          "CLUSTER_004",
+          "CLUSTER_002"
+        ],
+        "suggested_actions": [
+          "Highlight Cut-Out Path",
+          "Inspect Connected Sub-cells"
+        ]
+      },
+      "spatialContext": {
+        "available": true,
+        "waypoints": [
+          {
+            "name": "Mohali",
+            "lat": 30.6882,
+            "lng": 76.7358,
+            "timestamp": "2026-08-27T21:31:00Z",
+            "event_id": "B012",
+            "type": "POINT"
+          },
+          {
+            "name": "Mohali",
+            "lat": 30.6882,
+            "lng": 76.7358,
+            "timestamp": "2026-08-28T22:36:00Z",
+            "event_id": "B016",
+            "type": "POINT"
+          }
+        ],
+        "primary_location": "Mohali",
+        "distance_km": null,
+        "implied_speed_kmh": null,
+        "elapsed_seconds": null,
+        "movement_description": "2 verified geographic coordinate records at Mohali."
+      },
+      "supportingEvents": [
+        {
+          "event_id": "B010",
+          "timestamp": "2026-08-26T21:02:00Z",
+          "relative_time": "+0m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 150000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK003",
+          "location": "Chandigarh",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "B011",
+          "timestamp": "2026-08-26T21:18:00Z",
+          "relative_time": "+16m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 147000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK004",
+          "location": "Zirakpur",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "B012",
+          "timestamp": "2026-08-27T21:31:00Z",
+          "relative_time": "+1469m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 145000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK005",
+          "location": "Mohali",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "B013",
+          "timestamp": "2026-08-27T21:48:00Z",
+          "relative_time": "+1486m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 142000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK001",
+          "location": "Chandigarh",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "B014",
+          "timestamp": "2026-08-28T22:05:00Z",
+          "relative_time": "+2943m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 320000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK003",
+          "location": "Chandigarh",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "B015",
+          "timestamp": "2026-08-28T22:19:00Z",
+          "relative_time": "+2957m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 315000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK004",
+          "location": "Zirakpur",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "B016",
+          "timestamp": "2026-08-28T22:36:00Z",
+          "relative_time": "+2974m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 310000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK005",
+          "location": "Mohali",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "B017",
+          "timestamp": "2026-08-28T22:54:00Z",
+          "relative_time": "+2992m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 305000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK001",
+          "location": "Chandigarh",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        }
+      ],
+      "detectedAt": "2026-09-05T09:48:10.908821+00:00",
+      "confidence": 0.94,
+      "domain": "FINANCIAL",
+      "contributingDetectors": [
+        "DET-FIN-COORDINATED-FLOW",
+        "DET-FIN-DORMANT",
+        "DET-GRAPH-NETWORK",
+        "DET-BEHAVIORAL-IF"
+      ],
+      "evidence_refs": [
+        "EV-18D23A80",
+        "EV-7641F245",
+        "EV-7B4994C8",
+        "EV-7B61DAFF",
+        "EV-AD966F16",
+        "EV-E8B2AA0B"
+      ],
+      "canonical_event_refs": [
+        "B010",
+        "B011",
+        "B012",
+        "B013",
+        "B014",
+        "B015",
+        "B016",
+        "B017"
+      ]
+    },
+    {
+      "id": "FINDING-5CB22601-CDF7F7",
+      "entityId": "CLUSTER_003",
+      "entityType": "Person",
+      "type": "COMM_SYNCHRONIZED_EPISODE",
+      "category": "COMMUNICATION",
+      "patternType": "COMM_SYNCHRONIZED_EPISODE",
+      "severity": "CRITICAL",
+      "score": 92.0,
+      "status": "DETECTED",
+      "title": "Synchronized Communication Episode",
+      "whatHappened": "The four entities exchange calls in a repeated tightly sequenced pattern.\n\n[CASE SUMMARY FOR INVESTIGATING OFFICER]:\nThe four suspects (Aarav Sharma, Riya Mehta, Kabir Singh, Neha Kapoor) communicate in a strict sequential telephone chain. Whenever one person calls, the next suspect immediately dials the third, who dials the fourth within 10 to 15 minutes: Aarav (+919876501101) -> Riya (+919876502202) -> Kabir (+919876503303) -> Neha (+919876504404). A total of 12 sequential calls occurred across 26, 27, and 28 August in this identical cascade pattern.",
+      "whyUnusual": "Repeated multi-party sequential call chains occurring within narrow time cascades deviate from random communication patterns.\n\n[WHY THIS IS SUSPICIOUS / \u0905\u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0939\u094b\u0928\u0947 \u0915\u093e \u0915\u093e\u0930\u0923]:\nNormal civilian phone calls occur sporadically. A strict four-party relay cascade repeating across successive days right before financial transfers demonstrates disciplined operational signaling rather than casual social calling.",
+      "whyRelevant": "Cascading call episodes establish operational synchronization across the active entity group.\n\n[RECOMMENDED POLICE ACTION / \u091c\u093e\u0902\u091a \u0905\u0927\u093f\u0915\u093e\u0930\u0940 \u0915\u0947 \u0932\u093f\u090f \u0915\u093e\u0930\u094d\u092f\u0935\u093e\u0939\u0940]:\n1. Issue notices under Section 91 CrPC / Section 94 BNSS to Telecom Service Providers for detailed CDR, SDR, and cell tower locations.\n2. Identify IMEI numbers used for each call to check for device sharing.",
+      "caseRelevance": "HIGH",
+      "investigativePriority": "CRITICAL",
+      "primaryEntities": [
+        {
+          "entity_id": "CLUSTER_003",
+          "display_name": "Kabir Singh",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876503303"
+          ],
+          "accounts": [
+            "BANK004"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_001",
+          "display_name": "Aarav Sharma",
+          "entity_type": "Person",
+          "risk_score": 0.8,
+          "aliases": [
+            "Aarav Sharm"
+          ],
+          "phones": [
+            "+919876501101"
+          ],
+          "accounts": [
+            "BANK001",
+            "BANK002"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_004",
+          "display_name": "Neha Kapoor",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876504404"
+          ],
+          "accounts": [
+            "BANK005"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_002",
+          "display_name": "Riya Mehta",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876502202"
+          ],
+          "accounts": [
+            "BANK003"
+          ],
+          "social_handles": []
+        }
+      ],
+      "relatedEntities": [],
+      "supportingObservations": [
+        "Identified Suspect: Kabir Singh",
+        "Linked Account: BANK004",
+        "Primary Mobile: +919876503303",
+        "Evidentiary Basis: 12 verified records corroborated across Telecom"
+      ],
+      "detectorSummary": [
+        {
+          "detector_id": "DET-COMM-SYNC-EPISODE",
+          "name": "Synchronized Communication Episode",
+          "domain": "TELECOM",
+          "score": 87.0,
+          "confidence": 0.91,
+          "status": "FLAGGED",
+          "observations": {
+            "communication_events_count": 12,
+            "sync_entities": []
+          }
+        },
+        {
+          "detector_id": "DET-COMM-SYNC-EPISODE",
+          "name": "Synchronized Communication Episode",
+          "domain": "TELECOM",
+          "score": 87.0,
+          "confidence": 0.91,
+          "status": "FLAGGED",
+          "observations": {
+            "communication_events_count": 12,
+            "sync_entities": []
+          }
+        },
+        {
+          "detector_id": "DET-COMM-SYNC-EPISODE",
+          "name": "Synchronized Communication Episode",
+          "domain": "TELECOM",
+          "score": 87.0,
+          "confidence": 0.91,
+          "status": "FLAGGED",
+          "observations": {
+            "communication_events_count": 12,
+            "sync_entities": []
+          }
+        },
+        {
+          "detector_id": "DET-COMM-SYNC-EPISODE",
+          "name": "Synchronized Communication Episode",
+          "domain": "TELECOM",
+          "score": 87.0,
+          "confidence": 0.91,
+          "status": "FLAGGED",
+          "observations": {
+            "communication_events_count": 12,
+            "sync_entities": []
+          }
+        }
+      ],
+      "reasons": [
+        "Identified Suspect: Kabir Singh",
+        "Linked Account: BANK004",
+        "Primary Mobile: +919876503303",
+        "Evidentiary Basis: 12 verified records corroborated across Telecom"
+      ],
+      "metrics": {
+        "episode_count": 3,
+        "total_calls": 12,
+        "participants": [
+          "+919876501101",
+          "+919876503303",
+          "+919876504404",
+          "+919876502202"
+        ]
+      },
+      "timelineContext": {
+        "start_time": "2026-08-26T20:55:00Z",
+        "end_time": "2026-08-28T23:05:00Z",
+        "total_events_in_sequence": 12,
+        "sequence_steps": [
+          {
+            "step_index": 1,
+            "timestamp": "2026-08-26T20:55:00Z",
+            "time_offset": "+0m",
+            "domain": "TELECOM",
+            "description": "Aarav Sharma placed call (412s) [Tower: CELL-CHD-22]",
+            "event_id": "C001"
+          },
+          {
+            "step_index": 2,
+            "timestamp": "2026-08-26T21:08:00Z",
+            "time_offset": "+13m",
+            "domain": "TELECOM",
+            "description": "Riya Mehta placed call (633s) [Tower: CELL-CHD-22]",
+            "event_id": "C002"
+          },
+          {
+            "step_index": 3,
+            "timestamp": "2026-08-26T21:26:00Z",
+            "time_offset": "+31m",
+            "domain": "TELECOM",
+            "description": "Kabir Singh placed call (521s) [Tower: CELL-MOH-07]",
+            "event_id": "C003"
+          },
+          {
+            "step_index": 4,
+            "timestamp": "2026-08-26T21:45:00Z",
+            "time_offset": "+50m",
+            "domain": "TELECOM",
+            "description": "Neha Kapoor placed call (701s) [Tower: CELL-CHD-22]",
+            "event_id": "C004"
+          },
+          {
+            "step_index": 5,
+            "timestamp": "2026-08-27T21:00:00Z",
+            "time_offset": "+1445m",
+            "domain": "TELECOM",
+            "description": "Aarav Sharma placed call (366s) [Tower: CELL-CHD-22]",
+            "event_id": "C005"
+          },
+          {
+            "step_index": 6,
+            "timestamp": "2026-08-27T21:17:00Z",
+            "time_offset": "+1462m",
+            "domain": "TELECOM",
+            "description": "Riya Mehta placed call (588s) [Tower: CELL-CHD-22]",
+            "event_id": "C006"
+          },
+          {
+            "step_index": 7,
+            "timestamp": "2026-08-27T21:33:00Z",
+            "time_offset": "+1478m",
+            "domain": "TELECOM",
+            "description": "Kabir Singh placed call (490s) [Tower: CELL-MOH-07]",
+            "event_id": "C007"
+          },
+          {
+            "step_index": 8,
+            "timestamp": "2026-08-27T21:51:00Z",
+            "time_offset": "+1496m",
+            "domain": "TELECOM",
+            "description": "Neha Kapoor placed call (655s) [Tower: CELL-CHD-22]",
+            "event_id": "C008"
+          },
+          {
+            "step_index": 9,
+            "timestamp": "2026-08-28T22:12:00Z",
+            "time_offset": "+2957m",
+            "domain": "TELECOM",
+            "description": "Aarav Sharma placed call (312s) [Tower: CELL-CHD-22]",
+            "event_id": "C009"
+          },
+          {
+            "step_index": 10,
+            "timestamp": "2026-08-28T22:29:00Z",
+            "time_offset": "+2974m",
+            "domain": "TELECOM",
+            "description": "Riya Mehta placed call (454s) [Tower: CELL-CHD-22]",
+            "event_id": "C010"
+          },
+          {
+            "step_index": 11,
+            "timestamp": "2026-08-28T22:47:00Z",
+            "time_offset": "+2992m",
+            "domain": "TELECOM",
+            "description": "Kabir Singh placed call (389s) [Tower: CELL-MOH-07]",
+            "event_id": "C011"
+          },
+          {
+            "step_index": 12,
+            "timestamp": "2026-08-28T23:05:00Z",
+            "time_offset": "+3010m",
+            "domain": "TELECOM",
+            "description": "Neha Kapoor placed call (512s) [Tower: CELL-CHD-22]",
+            "event_id": "C012"
+          }
+        ]
+      },
+      "graphContext": {
+        "focused_entity": "CLUSTER_003",
+        "structural_role": "Participant",
+        "role_description": "Standard operational participant connected to neighboring entities.",
+        "degree": 0,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.0,
+        "community_id": -1,
+        "subgraph_entities": [
+          "CLUSTER_003",
+          "CLUSTER_001",
+          "CLUSTER_004",
+          "CLUSTER_002"
+        ],
+        "suggested_actions": [
+          "Inspect Direct Neighbors"
+        ]
+      },
+      "spatialContext": {
+        "available": false,
+        "reason": "No geographic coordinates or telemetry records associated with this finding."
+      },
+      "supportingEvents": [
+        {
+          "event_id": "C001",
+          "timestamp": "2026-08-26T20:55:00Z",
+          "relative_time": "+0m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C002",
+          "timestamp": "2026-08-26T21:08:00Z",
+          "relative_time": "+13m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C003",
+          "timestamp": "2026-08-26T21:26:00Z",
+          "relative_time": "+31m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-MOH-07",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C004",
+          "timestamp": "2026-08-26T21:45:00Z",
+          "relative_time": "+50m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C005",
+          "timestamp": "2026-08-27T21:00:00Z",
+          "relative_time": "+1445m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C006",
+          "timestamp": "2026-08-27T21:17:00Z",
+          "relative_time": "+1462m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C007",
+          "timestamp": "2026-08-27T21:33:00Z",
+          "relative_time": "+1478m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-MOH-07",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C008",
+          "timestamp": "2026-08-27T21:51:00Z",
+          "relative_time": "+1496m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C009",
+          "timestamp": "2026-08-28T22:12:00Z",
+          "relative_time": "+2957m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C010",
+          "timestamp": "2026-08-28T22:29:00Z",
+          "relative_time": "+2974m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C011",
+          "timestamp": "2026-08-28T22:47:00Z",
+          "relative_time": "+2992m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-MOH-07",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C012",
+          "timestamp": "2026-08-28T23:05:00Z",
+          "relative_time": "+3010m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        }
+      ],
+      "detectedAt": "2026-09-05T09:48:10.908832+00:00",
+      "confidence": 0.91,
+      "domain": "COMMUNICATION",
+      "contributingDetectors": [
+        "DET-COMM-SYNC-EPISODE"
+      ],
+      "evidence_refs": [
+        "EV-18D23A80",
+        "EV-7641F245",
+        "EV-7B4994C8",
+        "EV-7B61DAFF",
+        "EV-AD966F16",
+        "EV-E8B2AA0B"
+      ],
+      "canonical_event_refs": [
+        "C001",
+        "C002",
+        "C003",
+        "C004",
+        "C005",
+        "C006",
+        "C007",
+        "C008",
+        "C009",
+        "C010",
+        "C011",
+        "C012"
+      ]
+    },
+    {
+      "id": "FINDING-7BEBA4B6-6484B4",
+      "entityId": "CLUSTER_003",
+      "entityType": "Person",
+      "type": "SOC_SHARED_INFRASTRUCTURE",
+      "category": "SOCIAL_COORDINATION",
+      "patternType": "SOC_SHARED_INFRASTRUCTURE",
+      "severity": "CRITICAL",
+      "score": 92.0,
+      "status": "DETECTED",
+      "title": "Shared Digital Infrastructure Co-Occurrence",
+      "whatHappened": "The four entities repeatedly use the same destination IP and Telegram group in overlapping windows.\n\n[CASE SUMMARY FOR INVESTIGATING OFFICER]:\nThe suspects are accessing the internet through the same proxy server IP address (103.45.67.89 / 185.10.10.5) and participating in the same private encrypted Telegram group chat (@shadow_ops_hub / internal syndicate channel) during the exact same operating hours, establishing a shared digital communication hub.",
+      "whyUnusual": "Multiple distinct legal personas accessing identical destination IP servers and private messaging group identifiers across overlapping operational intervals.\n\n[WHY THIS IS SUSPICIOUS / \u0905\u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0939\u094b\u0928\u0947 \u0915\u093e \u0915\u093e\u0930\u0923]:\nIndependent individuals do not share the exact same specialized destination proxy server and participate in the same closed messaging channel simultaneously by chance.",
+      "whyRelevant": "Demonstrates shared technical and communication infrastructure among the associated persons.\n\n[RECOMMENDED POLICE ACTION / \u091c\u093e\u0902\u091a \u0905\u0927\u093f\u0915\u093e\u0930\u0940 \u0915\u0947 \u0932\u093f\u090f \u0915\u093e\u0930\u094d\u092f\u0935\u093e\u0939\u0940]:\n1. Issue notice to Internet Service Provider (ISP) / hosting provider for IP 103.45.67.89 and 185.10.10.5 allocation records.\n2. Submit formal legal request to Telegram nodal officer via Cyber Crime Cell for group chat subscriber details.",
+      "caseRelevance": "HIGH",
+      "investigativePriority": "CRITICAL",
+      "primaryEntities": [
+        {
+          "entity_id": "CLUSTER_003",
+          "display_name": "Kabir Singh",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876503303"
+          ],
+          "accounts": [
+            "BANK004"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_001",
+          "display_name": "Aarav Sharma",
+          "entity_type": "Person",
+          "risk_score": 0.8,
+          "aliases": [
+            "Aarav Sharm"
+          ],
+          "phones": [
+            "+919876501101"
+          ],
+          "accounts": [
+            "BANK001",
+            "BANK002"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_004",
+          "display_name": "Neha Kapoor",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876504404"
+          ],
+          "accounts": [
+            "BANK005"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_002",
+          "display_name": "Riya Mehta",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876502202"
+          ],
+          "accounts": [
+            "BANK003"
+          ],
+          "social_handles": []
+        }
+      ],
+      "relatedEntities": [],
+      "supportingObservations": [
+        "Identified Suspect: Kabir Singh",
+        "Linked Account: BANK004",
+        "Primary Mobile: +919876503303",
+        "Shared Proxy IP: 185.10.10.5",
+        "Evidentiary Basis: 24 verified records corroborated across Cross_Domain"
+      ],
+      "detectorSummary": [
+        {
+          "detector_id": "DET-SOC-INFRA",
+          "name": "Shared Digital Infrastructure Co-Occurrence",
+          "domain": "CROSS_DOMAIN",
+          "score": 85.0,
+          "confidence": 0.88,
+          "status": "FLAGGED",
+          "observations": {
+            "shared_ip": "185.10.10.5",
+            "linked_persona_count": 4,
+            "converging_entities": [
+              "Riya Mehta",
+              "Kabir Singh",
+              "Neha Kapoor"
+            ],
+            "shared_entities": [
+              "Riya Mehta",
+              "Kabir Singh",
+              "Neha Kapoor"
+            ]
+          }
+        },
+        {
+          "detector_id": "DET-SOC-INFRA",
+          "name": "Shared Digital Infrastructure Co-Occurrence",
+          "domain": "CROSS_DOMAIN",
+          "score": 85.0,
+          "confidence": 0.88,
+          "status": "FLAGGED",
+          "observations": {
+            "shared_ip": "185.10.10.5",
+            "linked_persona_count": 4,
+            "converging_entities": [
+              "Aarav Sharma",
+              "Kabir Singh",
+              "Neha Kapoor"
+            ],
+            "shared_entities": [
+              "Aarav Sharma",
+              "Kabir Singh",
+              "Neha Kapoor"
+            ]
+          }
+        },
+        {
+          "detector_id": "DET-SOC-INFRA",
+          "name": "Shared Digital Infrastructure Co-Occurrence",
+          "domain": "CROSS_DOMAIN",
+          "score": 85.0,
+          "confidence": 0.88,
+          "status": "FLAGGED",
+          "observations": {
+            "shared_ip": "185.10.10.5",
+            "linked_persona_count": 4,
+            "converging_entities": [
+              "Aarav Sharma",
+              "Riya Mehta",
+              "Neha Kapoor"
+            ],
+            "shared_entities": [
+              "Aarav Sharma",
+              "Riya Mehta",
+              "Neha Kapoor"
+            ]
+          }
+        },
+        {
+          "detector_id": "DET-SOC-INFRA",
+          "name": "Shared Digital Infrastructure Co-Occurrence",
+          "domain": "CROSS_DOMAIN",
+          "score": 85.0,
+          "confidence": 0.88,
+          "status": "FLAGGED",
+          "observations": {
+            "shared_ip": "185.10.10.5",
+            "linked_persona_count": 4,
+            "converging_entities": [
+              "Aarav Sharma",
+              "Riya Mehta",
+              "Kabir Singh"
+            ],
+            "shared_entities": [
+              "Aarav Sharma",
+              "Riya Mehta",
+              "Kabir Singh"
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "Identified Suspect: Kabir Singh",
+        "Linked Account: BANK004",
+        "Primary Mobile: +919876503303",
+        "Shared Proxy IP: 185.10.10.5",
+        "Evidentiary Basis: 24 verified records corroborated across Cross_Domain"
+      ],
+      "metrics": {
+        "shared_entities": [
+          {
+            "peer": "Aarav Sharma",
+            "common_ips": [
+              "185.10.10.5"
+            ],
+            "common_dest_ips": [
+              "185.10.10.5"
+            ],
+            "common_imeis": [],
+            "common_groups": [
+              "group_ironlotus"
+            ]
+          },
+          {
+            "peer": "Riya Mehta",
+            "common_ips": [
+              "185.10.10.5"
+            ],
+            "common_dest_ips": [
+              "185.10.10.5"
+            ],
+            "common_imeis": [],
+            "common_groups": [
+              "group_ironlotus"
+            ]
+          },
+          {
+            "peer": "Kabir Singh",
+            "common_ips": [
+              "185.10.10.5"
+            ],
+            "common_dest_ips": [
+              "185.10.10.5"
+            ],
+            "common_imeis": [],
+            "common_groups": [
+              "group_ironlotus"
+            ]
+          }
+        ],
+        "shared_imei": null,
+        "shared_ip": "185.10.10.5",
+        "shared_destination_ips": [
+          "185.10.10.5"
+        ],
+        "shared_groups": [
+          "group_ironlotus"
+        ],
+        "persona_count": 4
+      },
+      "timelineContext": {
+        "start_time": "2026-08-26T20:40:00Z",
+        "end_time": "2026-08-28T22:59:00Z",
+        "total_events_in_sequence": 24,
+        "sequence_steps": [
+          {
+            "step_index": 1,
+            "timestamp": "2026-08-26T20:40:00Z",
+            "time_offset": "+0m",
+            "domain": "NETWORK",
+            "description": "Aarav Sharma active in 185.10.10.5",
+            "event_id": "IP001"
+          },
+          {
+            "step_index": 2,
+            "timestamp": "2026-08-26T20:50:00Z",
+            "time_offset": "+10m",
+            "domain": "SOCIAL",
+            "description": "Aarav Sharma Social Activity",
+            "event_id": "S001"
+          },
+          {
+            "step_index": 3,
+            "timestamp": "2026-08-26T21:02:00Z",
+            "time_offset": "+22m",
+            "domain": "NETWORK",
+            "description": "Riya Mehta active in 185.10.10.5",
+            "event_id": "IP002"
+          },
+          {
+            "step_index": 4,
+            "timestamp": "2026-08-26T21:10:00Z",
+            "time_offset": "+30m",
+            "domain": "SOCIAL",
+            "description": "Riya Mehta Social Activity",
+            "event_id": "S002"
+          },
+          {
+            "step_index": 5,
+            "timestamp": "2026-08-26T21:20:00Z",
+            "time_offset": "+40m",
+            "domain": "NETWORK",
+            "description": "Kabir Singh active in 185.10.10.5",
+            "event_id": "IP003"
+          },
+          {
+            "step_index": 6,
+            "timestamp": "2026-08-26T21:30:00Z",
+            "time_offset": "+50m",
+            "domain": "SOCIAL",
+            "description": "Kabir Singh Social Activity",
+            "event_id": "S003"
+          },
+          {
+            "step_index": 7,
+            "timestamp": "2026-08-26T21:40:00Z",
+            "time_offset": "+60m",
+            "domain": "NETWORK",
+            "description": "Neha Kapoor active in 185.10.10.5",
+            "event_id": "IP004"
+          },
+          {
+            "step_index": 8,
+            "timestamp": "2026-08-26T21:50:00Z",
+            "time_offset": "+70m",
+            "domain": "SOCIAL",
+            "description": "Neha Kapoor Social Activity",
+            "event_id": "S004"
+          },
+          {
+            "step_index": 9,
+            "timestamp": "2026-08-27T20:45:00Z",
+            "time_offset": "+1445m",
+            "domain": "NETWORK",
+            "description": "Aarav Sharma active in 185.10.10.5",
+            "event_id": "IP005"
+          },
+          {
+            "step_index": 10,
+            "timestamp": "2026-08-27T20:55:00Z",
+            "time_offset": "+1455m",
+            "domain": "SOCIAL",
+            "description": "Aarav Sharma Social Activity",
+            "event_id": "S005"
+          },
+          {
+            "step_index": 11,
+            "timestamp": "2026-08-27T21:05:00Z",
+            "time_offset": "+1465m",
+            "domain": "NETWORK",
+            "description": "Riya Mehta active in 185.10.10.5",
+            "event_id": "IP006"
+          },
+          {
+            "step_index": 12,
+            "timestamp": "2026-08-27T21:15:00Z",
+            "time_offset": "+1475m",
+            "domain": "SOCIAL",
+            "description": "Riya Mehta Social Activity",
+            "event_id": "S006"
+          },
+          {
+            "step_index": 13,
+            "timestamp": "2026-08-27T21:25:00Z",
+            "time_offset": "+1485m",
+            "domain": "NETWORK",
+            "description": "Kabir Singh active in 185.10.10.5",
+            "event_id": "IP007"
+          },
+          {
+            "step_index": 14,
+            "timestamp": "2026-08-27T21:35:00Z",
+            "time_offset": "+1495m",
+            "domain": "SOCIAL",
+            "description": "Kabir Singh Social Activity",
+            "event_id": "S007"
+          },
+          {
+            "step_index": 15,
+            "timestamp": "2026-08-27T21:45:00Z",
+            "time_offset": "+1505m",
+            "domain": "NETWORK",
+            "description": "Neha Kapoor active in 185.10.10.5",
+            "event_id": "IP008"
+          },
+          {
+            "step_index": 16,
+            "timestamp": "2026-08-27T21:55:00Z",
+            "time_offset": "+1515m",
+            "domain": "SOCIAL",
+            "description": "Neha Kapoor Social Activity",
+            "event_id": "S008"
+          },
+          {
+            "step_index": 17,
+            "timestamp": "2026-08-28T22:00:00Z",
+            "time_offset": "+2960m",
+            "domain": "NETWORK",
+            "description": "Aarav Sharma active in 185.10.10.5",
+            "event_id": "IP009"
+          },
+          {
+            "step_index": 18,
+            "timestamp": "2026-08-28T22:05:00Z",
+            "time_offset": "+2965m",
+            "domain": "SOCIAL",
+            "description": "Aarav Sharma Social Activity",
+            "event_id": "S009"
+          },
+          {
+            "step_index": 19,
+            "timestamp": "2026-08-28T22:18:00Z",
+            "time_offset": "+2978m",
+            "domain": "NETWORK",
+            "description": "Riya Mehta active in 185.10.10.5",
+            "event_id": "IP010"
+          },
+          {
+            "step_index": 20,
+            "timestamp": "2026-08-28T22:23:00Z",
+            "time_offset": "+2983m",
+            "domain": "SOCIAL",
+            "description": "Riya Mehta Social Activity",
+            "event_id": "S010"
+          },
+          {
+            "step_index": 21,
+            "timestamp": "2026-08-28T22:36:00Z",
+            "time_offset": "+2996m",
+            "domain": "NETWORK",
+            "description": "Kabir Singh active in 185.10.10.5",
+            "event_id": "IP011"
+          },
+          {
+            "step_index": 22,
+            "timestamp": "2026-08-28T22:41:00Z",
+            "time_offset": "+3001m",
+            "domain": "SOCIAL",
+            "description": "Kabir Singh Social Activity",
+            "event_id": "S011"
+          },
+          {
+            "step_index": 23,
+            "timestamp": "2026-08-28T22:54:00Z",
+            "time_offset": "+3014m",
+            "domain": "NETWORK",
+            "description": "Neha Kapoor active in 185.10.10.5",
+            "event_id": "IP012"
+          },
+          {
+            "step_index": 24,
+            "timestamp": "2026-08-28T22:59:00Z",
+            "time_offset": "+3019m",
+            "domain": "SOCIAL",
+            "description": "Neha Kapoor Social Activity",
+            "event_id": "S012"
+          }
+        ]
+      },
+      "graphContext": {
+        "focused_entity": "CLUSTER_003",
+        "structural_role": "Participant",
+        "role_description": "Standard operational participant connected to neighboring entities.",
+        "degree": 0,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.0,
+        "community_id": -1,
+        "subgraph_entities": [
+          "CLUSTER_003",
+          "CLUSTER_001",
+          "CLUSTER_004",
+          "CLUSTER_002",
+          "Aarav Sharma",
+          "Riya Mehta",
+          "Kabir Singh"
+        ],
+        "suggested_actions": [
+          "Inspect Direct Neighbors"
+        ]
+      },
+      "spatialContext": {
+        "available": false,
+        "reason": "No geographic coordinates or telemetry records associated with this finding."
+      },
+      "supportingEvents": [
+        {
+          "event_id": "IP001",
+          "timestamp": "2026-08-26T20:40:00Z",
+          "relative_time": "+0m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.11",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S001",
+          "timestamp": "2026-08-26T20:50:00Z",
+          "relative_time": "+10m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP002",
+          "timestamp": "2026-08-26T21:02:00Z",
+          "relative_time": "+22m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.12",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S002",
+          "timestamp": "2026-08-26T21:10:00Z",
+          "relative_time": "+30m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP003",
+          "timestamp": "2026-08-26T21:20:00Z",
+          "relative_time": "+40m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.13",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S003",
+          "timestamp": "2026-08-26T21:30:00Z",
+          "relative_time": "+50m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP004",
+          "timestamp": "2026-08-26T21:40:00Z",
+          "relative_time": "+60m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.14",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S004",
+          "timestamp": "2026-08-26T21:50:00Z",
+          "relative_time": "+70m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP005",
+          "timestamp": "2026-08-27T20:45:00Z",
+          "relative_time": "+1445m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.11",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S005",
+          "timestamp": "2026-08-27T20:55:00Z",
+          "relative_time": "+1455m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP006",
+          "timestamp": "2026-08-27T21:05:00Z",
+          "relative_time": "+1465m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.12",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S006",
+          "timestamp": "2026-08-27T21:15:00Z",
+          "relative_time": "+1475m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP007",
+          "timestamp": "2026-08-27T21:25:00Z",
+          "relative_time": "+1485m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.13",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S007",
+          "timestamp": "2026-08-27T21:35:00Z",
+          "relative_time": "+1495m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP008",
+          "timestamp": "2026-08-27T21:45:00Z",
+          "relative_time": "+1505m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.14",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S008",
+          "timestamp": "2026-08-27T21:55:00Z",
+          "relative_time": "+1515m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP009",
+          "timestamp": "2026-08-28T22:00:00Z",
+          "relative_time": "+2960m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.11",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S009",
+          "timestamp": "2026-08-28T22:05:00Z",
+          "relative_time": "+2965m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP010",
+          "timestamp": "2026-08-28T22:18:00Z",
+          "relative_time": "+2978m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.12",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S010",
+          "timestamp": "2026-08-28T22:23:00Z",
+          "relative_time": "+2983m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP011",
+          "timestamp": "2026-08-28T22:36:00Z",
+          "relative_time": "+2996m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.13",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S011",
+          "timestamp": "2026-08-28T22:41:00Z",
+          "relative_time": "+3001m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "IP012",
+          "timestamp": "2026-08-28T22:54:00Z",
+          "relative_time": "+3014m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.14",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "S012",
+          "timestamp": "2026-08-28T22:59:00Z",
+          "relative_time": "+3019m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        }
+      ],
+      "detectedAt": "2026-09-05T09:48:10.908834+00:00",
+      "confidence": 0.88,
+      "domain": "SOCIAL_COORDINATION",
+      "contributingDetectors": [
+        "DET-SOC-INFRA"
+      ],
+      "evidence_refs": [
+        "EV-18D23A80",
+        "EV-7641F245",
+        "EV-7B4994C8",
+        "EV-7B61DAFF",
+        "EV-AD966F16",
+        "EV-E8B2AA0B"
+      ],
+      "canonical_event_refs": [
+        "IP001",
+        "S001",
+        "IP002",
+        "S002",
+        "IP003",
+        "S003",
+        "IP004",
+        "S004",
+        "IP005",
+        "S005",
+        "IP006",
+        "S006",
+        "IP007",
+        "S007",
+        "IP008",
+        "S008",
+        "IP009",
+        "S009",
+        "IP010",
+        "S010",
+        "IP011",
+        "S011",
+        "IP012",
+        "S012"
+      ]
+    },
+    {
+      "id": "FINDING-BC86C525-C3C6D6",
+      "entityId": "CLUSTER_001",
+      "entityType": "Person",
+      "type": "GEO_CONVERGENCE",
+      "category": "SPATIAL_TEMPORAL",
+      "patternType": "GEO_CONVERGENCE",
+      "severity": "CRITICAL",
+      "score": 90.0,
+      "status": "DETECTED",
+      "title": "Repeated Multi-Entity Spatial Convergence",
+      "whatHappened": "Aarav, Riya and Neha repeatedly appear in the same small Sector 22 area during overlapping windows.\n\n[CASE SUMMARY FOR INVESTIGATING OFFICER]:\nThree primary suspects (Aarav Sharma, Riya Mehta, and Neha Kapoor) were physically present at the exact same location (Sector 22 Market, Chandigarh) across three consecutive evenings (26, 27, and 28 August) between 20:50 and 22:30. Their location coordinates coincide directly before and during the large fund transfers and telephone call chains.",
+      "whyUnusual": "Multiple targets repeatedly appear in the same small localized sector across successive days, deviating from independent movement baselines.\n\n[WHY THIS IS SUSPICIOUS / \u0905\u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0939\u094b\u0928\u0947 \u0915\u093e \u0915\u093e\u0930\u0923]:\nThree separate individuals who reside or work in different areas repeatedly converge at the exact same physical market area at identical late evening hours. Independent citizens do not coincidentally share repeated localized rendezvous timings directly coinciding with major financial events.",
+      "whyRelevant": "Spatial convergence links the targets to the same operational vicinity during key investigative windows.\n\n[RECOMMENDED POLICE ACTION / \u091c\u093e\u0902\u091a \u0905\u0927\u093f\u0915\u093e\u0930\u0940 \u0915\u0947 \u0932\u093f\u090f \u0915\u093e\u0930\u094d\u092f\u0935\u093e\u0939\u0940]:\n1. Collect CCTV footage from Sector 22 Market, Chandigarh for 26, 27, and 28 August between 20:30 and 23:00.\n2. Conduct field verification at Sector 22 Market to identify common meeting venue (cafe/shop/vehicle).",
+      "caseRelevance": "HIGH",
+      "investigativePriority": "CRITICAL",
+      "primaryEntities": [
+        {
+          "entity_id": "CLUSTER_001",
+          "display_name": "Aarav Sharma",
+          "entity_type": "Person",
+          "risk_score": 0.8,
+          "aliases": [
+            "Aarav Sharm"
+          ],
+          "phones": [
+            "+919876501101"
+          ],
+          "accounts": [
+            "BANK001",
+            "BANK002"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_004",
+          "display_name": "Neha Kapoor",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876504404"
+          ],
+          "accounts": [
+            "BANK005"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_002",
+          "display_name": "Riya Mehta",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876502202"
+          ],
+          "accounts": [
+            "BANK003"
+          ],
+          "social_handles": []
+        }
+      ],
+      "relatedEntities": [],
+      "supportingObservations": [
+        "Identified Suspect: Aarav Sharma (Aliases: Aarav Sharm)",
+        "Linked Account: BANK001",
+        "Primary Mobile: +919876501101",
+        "Verified Rendezvous Point: CELL-CHD-22",
+        "Evidentiary Basis: 9 verified records corroborated across Cross_Domain"
+      ],
+      "detectorSummary": [
+        {
+          "detector_id": "DET-SPATIAL-CONVERGENCE",
+          "name": "Repeated Multi-Entity Spatial Convergence",
+          "domain": "CROSS_DOMAIN",
+          "score": 85.0,
+          "confidence": 0.89,
+          "status": "FLAGGED",
+          "observations": {
+            "convergence_events_count": 6,
+            "converged_entities": [
+              "Riya Mehta",
+              "Neha Kapoor"
+            ],
+            "converging_entities": [
+              "Riya Mehta",
+              "Neha Kapoor"
+            ],
+            "towers": [
+              "CELL-CHD-22"
+            ],
+            "convergence_location": "CELL-CHD-22"
+          }
+        },
+        {
+          "detector_id": "DET-SPATIAL-CONVERGENCE",
+          "name": "Repeated Multi-Entity Spatial Convergence",
+          "domain": "CROSS_DOMAIN",
+          "score": 85.0,
+          "confidence": 0.89,
+          "status": "FLAGGED",
+          "observations": {
+            "convergence_events_count": 6,
+            "converged_entities": [
+              "Neha Kapoor",
+              "Aarav Sharma"
+            ],
+            "converging_entities": [
+              "Neha Kapoor",
+              "Aarav Sharma"
+            ],
+            "towers": [
+              "CELL-CHD-22"
+            ],
+            "convergence_location": "CELL-CHD-22"
+          }
+        },
+        {
+          "detector_id": "DET-SPATIAL-CONVERGENCE",
+          "name": "Repeated Multi-Entity Spatial Convergence",
+          "domain": "CROSS_DOMAIN",
+          "score": 85.0,
+          "confidence": 0.89,
+          "status": "FLAGGED",
+          "observations": {
+            "convergence_events_count": 6,
+            "converged_entities": [
+              "Riya Mehta",
+              "Aarav Sharma"
+            ],
+            "converging_entities": [
+              "Riya Mehta",
+              "Aarav Sharma"
+            ],
+            "towers": [
+              "CELL-CHD-22"
+            ],
+            "convergence_location": "CELL-CHD-22"
+          }
+        }
+      ],
+      "reasons": [
+        "Identified Suspect: Aarav Sharma (Aliases: Aarav Sharm)",
+        "Linked Account: BANK001",
+        "Primary Mobile: +919876501101",
+        "Verified Rendezvous Point: CELL-CHD-22",
+        "Evidentiary Basis: 9 verified records corroborated across Cross_Domain"
+      ],
+      "metrics": {
+        "converging_entities": [
+          "Riya Mehta",
+          "Aarav Sharma"
+        ],
+        "convergence_events_count": 6,
+        "towers": [
+          "CELL-CHD-22"
+        ]
+      },
+      "timelineContext": {
+        "start_time": "2026-08-26T20:50:00Z",
+        "end_time": "2026-08-28T23:02:00Z",
+        "total_events_in_sequence": 9,
+        "sequence_steps": [
+          {
+            "step_index": 1,
+            "timestamp": "2026-08-26T20:50:00Z",
+            "time_offset": "+0m",
+            "domain": "GENERAL",
+            "description": "Aarav Sharma recorded at Sector 22 Market",
+            "event_id": "G002"
+          },
+          {
+            "step_index": 2,
+            "timestamp": "2026-08-26T21:12:00Z",
+            "time_offset": "+22m",
+            "domain": "GENERAL",
+            "description": "Riya Mehta recorded at Sector 22 Market",
+            "event_id": "G003"
+          },
+          {
+            "step_index": 3,
+            "timestamp": "2026-08-26T21:52:00Z",
+            "time_offset": "+62m",
+            "domain": "GENERAL",
+            "description": "Neha Kapoor recorded at Sector 22 Market",
+            "event_id": "G005"
+          },
+          {
+            "step_index": 4,
+            "timestamp": "2026-08-27T21:02:00Z",
+            "time_offset": "+1452m",
+            "domain": "GENERAL",
+            "description": "Aarav Sharma recorded at Sector 22 Market",
+            "event_id": "G006"
+          },
+          {
+            "step_index": 5,
+            "timestamp": "2026-08-27T21:19:00Z",
+            "time_offset": "+1469m",
+            "domain": "GENERAL",
+            "description": "Riya Mehta recorded at Sector 22 Market",
+            "event_id": "G007"
+          },
+          {
+            "step_index": 6,
+            "timestamp": "2026-08-27T21:58:00Z",
+            "time_offset": "+1508m",
+            "domain": "GENERAL",
+            "description": "Neha Kapoor recorded at Sector 22 Market",
+            "event_id": "G009"
+          },
+          {
+            "step_index": 7,
+            "timestamp": "2026-08-28T22:08:00Z",
+            "time_offset": "+2958m",
+            "domain": "GENERAL",
+            "description": "Aarav Sharma recorded at Sector 22 Market",
+            "event_id": "G010"
+          },
+          {
+            "step_index": 8,
+            "timestamp": "2026-08-28T22:26:00Z",
+            "time_offset": "+2976m",
+            "domain": "GENERAL",
+            "description": "Riya Mehta recorded at Sector 22 Market",
+            "event_id": "G011"
+          },
+          {
+            "step_index": 9,
+            "timestamp": "2026-08-28T23:02:00Z",
+            "time_offset": "+3012m",
+            "domain": "GENERAL",
+            "description": "Neha Kapoor recorded at Sector 22 Market",
+            "event_id": "G013"
+          }
+        ]
+      },
+      "graphContext": {
+        "focused_entity": "CLUSTER_001",
+        "structural_role": "Participant",
+        "role_description": "Standard operational participant connected to neighboring entities.",
+        "degree": 0,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.0,
+        "community_id": -1,
+        "subgraph_entities": [
+          "CLUSTER_001",
+          "CLUSTER_004",
+          "CLUSTER_002",
+          "Riya Mehta",
+          "Aarav Sharma"
+        ],
+        "suggested_actions": [
+          "Inspect Direct Neighbors"
+        ]
+      },
+      "spatialContext": {
+        "available": true,
+        "waypoints": [
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7333,
+            "lng": 76.7794,
+            "timestamp": "2026-08-26T20:50:00Z",
+            "event_id": "G002",
+            "type": "POINT"
+          },
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7335,
+            "lng": 76.7791,
+            "timestamp": "2026-08-26T21:12:00Z",
+            "event_id": "G003",
+            "type": "POINT"
+          },
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7334,
+            "lng": 76.7792,
+            "timestamp": "2026-08-26T21:52:00Z",
+            "event_id": "G005",
+            "type": "POINT"
+          },
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7334,
+            "lng": 76.7793,
+            "timestamp": "2026-08-27T21:02:00Z",
+            "event_id": "G006",
+            "type": "POINT"
+          },
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7335,
+            "lng": 76.7792,
+            "timestamp": "2026-08-27T21:19:00Z",
+            "event_id": "G007",
+            "type": "POINT"
+          },
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7333,
+            "lng": 76.7793,
+            "timestamp": "2026-08-27T21:58:00Z",
+            "event_id": "G009",
+            "type": "POINT"
+          },
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7333,
+            "lng": 76.7793,
+            "timestamp": "2026-08-28T22:08:00Z",
+            "event_id": "G010",
+            "type": "POINT"
+          },
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7334,
+            "lng": 76.7792,
+            "timestamp": "2026-08-28T22:26:00Z",
+            "event_id": "G011",
+            "type": "POINT"
+          },
+          {
+            "name": "Sector 22 Market",
+            "lat": 30.7334,
+            "lng": 76.7793,
+            "timestamp": "2026-08-28T23:02:00Z",
+            "event_id": "G013",
+            "type": "POINT"
+          }
+        ],
+        "primary_location": "Sector 22 Market",
+        "distance_km": null,
+        "implied_speed_kmh": null,
+        "elapsed_seconds": null,
+        "movement_description": "9 verified geographic coordinate records at Sector 22 Market."
+      },
+      "supportingEvents": [
+        {
+          "event_id": "G002",
+          "timestamp": "2026-08-26T20:50:00Z",
+          "relative_time": "+0m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        },
+        {
+          "event_id": "G003",
+          "timestamp": "2026-08-26T21:12:00Z",
+          "relative_time": "+22m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        },
+        {
+          "event_id": "G005",
+          "timestamp": "2026-08-26T21:52:00Z",
+          "relative_time": "+62m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        },
+        {
+          "event_id": "G006",
+          "timestamp": "2026-08-27T21:02:00Z",
+          "relative_time": "+1452m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        },
+        {
+          "event_id": "G007",
+          "timestamp": "2026-08-27T21:19:00Z",
+          "relative_time": "+1469m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        },
+        {
+          "event_id": "G009",
+          "timestamp": "2026-08-27T21:58:00Z",
+          "relative_time": "+1508m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        },
+        {
+          "event_id": "G010",
+          "timestamp": "2026-08-28T22:08:00Z",
+          "relative_time": "+2958m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        },
+        {
+          "event_id": "G011",
+          "timestamp": "2026-08-28T22:26:00Z",
+          "relative_time": "+2976m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        },
+        {
+          "event_id": "G013",
+          "timestamp": "2026-08-28T23:02:00Z",
+          "relative_time": "+3012m",
+          "domain": "GENERAL",
+          "event_type": "LOCATION_EVENT",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "Sector 22 Market",
+          "ip": null,
+          "evidence_id": "EV-7B4994C8",
+          "source_file": "geospatial.csv"
+        }
+      ],
+      "detectedAt": "2026-09-05T09:48:10.908829+00:00",
+      "confidence": 0.89,
+      "domain": "SPATIAL_TEMPORAL",
+      "contributingDetectors": [
+        "DET-SPATIAL-CONVERGENCE"
+      ],
+      "evidence_refs": [
+        "EV-18D23A80",
+        "EV-7641F245",
+        "EV-7B4994C8",
+        "EV-7B61DAFF",
+        "EV-AD966F16",
+        "EV-E8B2AA0B"
+      ],
+      "canonical_event_refs": [
+        "G002",
+        "G003",
+        "G005",
+        "G006",
+        "G007",
+        "G009",
+        "G010",
+        "G011",
+        "G013"
+      ]
+    },
+    {
+      "id": "FINDING-24ADE0BE-45BB48",
+      "entityId": "CLUSTER_003",
+      "entityType": "Person",
+      "type": "CROSS_DOMAIN_COLLISION",
+      "category": "CROSS_DOMAIN",
+      "patternType": "CROSS_DOMAIN_COLLISION",
+      "severity": "CRITICAL",
+      "score": 85.5,
+      "status": "DETECTED",
+      "title": "Cross-Domain Coordinated Activity Burst",
+      "whatHappened": "Financial, communication and network activity cluster in the same short Aug 28 window.\n\n[CASE SUMMARY FOR INVESTIGATING OFFICER]:\nOn 28 August between 22:00 and 23:05 (a 65-minute window), 12 events occurred in lockstep across three separate channels: 4 internet sessions (IPDR), 4 bank transfers totaling \u20b912,50,000, and 4 sequential phone calls among Kabir Singh, Riya Mehta, Neha Kapoor, and Aarav Sharma.",
+      "whyUnusual": "High-density multi-domain burst synchronizing financial transactions, calls, and network sessions within a short temporal window.\n\n[WHY THIS IS SUSPICIOUS / \u0905\u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0939\u094b\u0928\u0947 \u0915\u093e \u0915\u093e\u0930\u0923]:\nUnrelated routine activities across banking, telephony, and internet sessions do not align within a 65-minute window by chance; this confirms synchronized execution across multiple channels.",
+      "whyRelevant": "Aligns cross-modal actions across the core entities during the operational burst.\n\n[RECOMMENDED POLICE ACTION / \u091c\u093e\u0902\u091a \u0905\u0927\u093f\u0915\u093e\u0930\u0940 \u0915\u0947 \u0932\u093f\u090f \u0915\u093e\u0930\u094d\u092f\u0935\u093e\u0939\u0940]:\n1. Prepare composite timeline exhibit synchronizing bank server logs, mobile tower records, and ISP session timestamps for 28 Aug 22:00-23:15.\n2. Correlate caller locations with transaction branch/ATM locations during the burst window.",
+      "caseRelevance": "HIGH",
+      "investigativePriority": "CRITICAL",
+      "primaryEntities": [
+        {
+          "entity_id": "CLUSTER_003",
+          "display_name": "Kabir Singh",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876503303"
+          ],
+          "accounts": [
+            "BANK004"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_001",
+          "display_name": "Aarav Sharma",
+          "entity_type": "Person",
+          "risk_score": 0.8,
+          "aliases": [
+            "Aarav Sharm"
+          ],
+          "phones": [
+            "+919876501101"
+          ],
+          "accounts": [
+            "BANK001",
+            "BANK002"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_004",
+          "display_name": "Neha Kapoor",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876504404"
+          ],
+          "accounts": [
+            "BANK005"
+          ],
+          "social_handles": []
+        },
+        {
+          "entity_id": "CLUSTER_002",
+          "display_name": "Riya Mehta",
+          "entity_type": "Person",
+          "risk_score": 0.35,
+          "aliases": [],
+          "phones": [
+            "+919876502202"
+          ],
+          "accounts": [
+            "BANK003"
+          ],
+          "social_handles": []
+        }
+      ],
+      "relatedEntities": [],
+      "supportingObservations": [
+        "Identified Suspect: Kabir Singh",
+        "Linked Account: BANK004",
+        "Primary Mobile: +919876503303",
+        "Evidentiary Basis: 12 verified records corroborated across Cross_Domain"
+      ],
+      "detectorSummary": [
+        {
+          "detector_id": "DET-CROSS-COLLISION",
+          "name": "Cross-Domain Coordinated Activity Burst",
+          "domain": "CROSS_DOMAIN",
+          "score": 78.0,
+          "confidence": 0.91,
+          "status": "FLAGGED",
+          "observations": {
+            "collision_count": 2,
+            "amount_inr": 320000.0,
+            "time_delta_minutes": 7.0,
+            "comm_domain": "TELECOM",
+            "tower_id": "CELL-CHD-22",
+            "client_ip": null
+          }
+        },
+        {
+          "detector_id": "DET-CROSS-COLLISION",
+          "name": "Cross-Domain Coordinated Activity Burst",
+          "domain": "CROSS_DOMAIN",
+          "score": 78.0,
+          "confidence": 0.91,
+          "status": "FLAGGED",
+          "observations": {
+            "collision_count": 2,
+            "amount_inr": 315000.0,
+            "time_delta_minutes": 10.0,
+            "comm_domain": "TELECOM",
+            "tower_id": "CELL-CHD-22",
+            "client_ip": null
+          }
+        },
+        {
+          "detector_id": "DET-CROSS-COLLISION",
+          "name": "Cross-Domain Coordinated Activity Burst",
+          "domain": "CROSS_DOMAIN",
+          "score": 78.0,
+          "confidence": 0.91,
+          "status": "FLAGGED",
+          "observations": {
+            "collision_count": 2,
+            "amount_inr": 310000.0,
+            "time_delta_minutes": 11.0,
+            "comm_domain": "TELECOM",
+            "tower_id": "CELL-MOH-07",
+            "client_ip": null
+          }
+        },
+        {
+          "detector_id": "DET-CROSS-COLLISION",
+          "name": "Cross-Domain Coordinated Activity Burst",
+          "domain": "CROSS_DOMAIN",
+          "score": 78.0,
+          "confidence": 0.91,
+          "status": "FLAGGED",
+          "observations": {
+            "collision_count": 2,
+            "amount_inr": 305000.0,
+            "time_delta_minutes": 11.0,
+            "comm_domain": "TELECOM",
+            "tower_id": "CELL-CHD-22",
+            "client_ip": null
+          }
+        }
+      ],
+      "reasons": [
+        "Identified Suspect: Kabir Singh",
+        "Linked Account: BANK004",
+        "Primary Mobile: +919876503303",
+        "Evidentiary Basis: 12 verified records corroborated across Cross_Domain"
+      ],
+      "metrics": {
+        "collisions_count": 2,
+        "collisions": [
+          {
+            "financial_event": "B017",
+            "amount_inr": 305000.0,
+            "comm_event": "C012",
+            "comm_domain": "TELECOM",
+            "delta_minutes": 11.0,
+            "ip": null,
+            "tower": "CELL-CHD-22",
+            "timestamp": "2026-08-28T22:54:00Z"
+          },
+          {
+            "financial_event": "B017",
+            "amount_inr": 305000.0,
+            "comm_event": "IP012",
+            "comm_domain": "NETWORK",
+            "delta_minutes": 0.0,
+            "ip": "10.20.1.14",
+            "tower": null,
+            "timestamp": "2026-08-28T22:54:00Z"
+          }
+        ]
+      },
+      "timelineContext": {
+        "start_time": "2026-08-28T22:00:00Z",
+        "end_time": "2026-08-28T23:05:00Z",
+        "total_events_in_sequence": 12,
+        "sequence_steps": [
+          {
+            "step_index": 1,
+            "timestamp": "2026-08-28T22:00:00Z",
+            "time_offset": "+0m",
+            "domain": "NETWORK",
+            "description": "Aarav Sharma active in 185.10.10.5",
+            "event_id": "IP009"
+          },
+          {
+            "step_index": 2,
+            "timestamp": "2026-08-28T22:05:00Z",
+            "time_offset": "+5m",
+            "domain": "BANKING",
+            "description": "Aarav Sharma transferred \u20b9320,000.00 to BANK003 via TRANSFER (Chandigarh)",
+            "event_id": "B014"
+          },
+          {
+            "step_index": 3,
+            "timestamp": "2026-08-28T22:12:00Z",
+            "time_offset": "+12m",
+            "domain": "TELECOM",
+            "description": "Aarav Sharma placed call (312s) [Tower: CELL-CHD-22]",
+            "event_id": "C009"
+          },
+          {
+            "step_index": 4,
+            "timestamp": "2026-08-28T22:18:00Z",
+            "time_offset": "+18m",
+            "domain": "NETWORK",
+            "description": "Riya Mehta active in 185.10.10.5",
+            "event_id": "IP010"
+          },
+          {
+            "step_index": 5,
+            "timestamp": "2026-08-28T22:19:00Z",
+            "time_offset": "+19m",
+            "domain": "BANKING",
+            "description": "Riya Mehta transferred \u20b9315,000.00 to BANK004 via TRANSFER (Zirakpur)",
+            "event_id": "B015"
+          },
+          {
+            "step_index": 6,
+            "timestamp": "2026-08-28T22:29:00Z",
+            "time_offset": "+29m",
+            "domain": "TELECOM",
+            "description": "Riya Mehta placed call (454s) [Tower: CELL-CHD-22]",
+            "event_id": "C010"
+          },
+          {
+            "step_index": 7,
+            "timestamp": "2026-08-28T22:36:00Z",
+            "time_offset": "+36m",
+            "domain": "BANKING",
+            "description": "Kabir Singh transferred \u20b9310,000.00 to BANK005 via TRANSFER (Mohali)",
+            "event_id": "B016"
+          },
+          {
+            "step_index": 8,
+            "timestamp": "2026-08-28T22:36:00Z",
+            "time_offset": "+36m",
+            "domain": "NETWORK",
+            "description": "Kabir Singh active in 185.10.10.5",
+            "event_id": "IP011"
+          },
+          {
+            "step_index": 9,
+            "timestamp": "2026-08-28T22:47:00Z",
+            "time_offset": "+47m",
+            "domain": "TELECOM",
+            "description": "Kabir Singh placed call (389s) [Tower: CELL-MOH-07]",
+            "event_id": "C011"
+          },
+          {
+            "step_index": 10,
+            "timestamp": "2026-08-28T22:54:00Z",
+            "time_offset": "+54m",
+            "domain": "BANKING",
+            "description": "Neha Kapoor transferred \u20b9305,000.00 to BANK001 via TRANSFER (Chandigarh)",
+            "event_id": "B017"
+          },
+          {
+            "step_index": 11,
+            "timestamp": "2026-08-28T22:54:00Z",
+            "time_offset": "+54m",
+            "domain": "NETWORK",
+            "description": "Neha Kapoor active in 185.10.10.5",
+            "event_id": "IP012"
+          },
+          {
+            "step_index": 12,
+            "timestamp": "2026-08-28T23:05:00Z",
+            "time_offset": "+65m",
+            "domain": "TELECOM",
+            "description": "Neha Kapoor placed call (512s) [Tower: CELL-CHD-22]",
+            "event_id": "C012"
+          }
+        ]
+      },
+      "graphContext": {
+        "focused_entity": "CLUSTER_003",
+        "structural_role": "Participant",
+        "role_description": "Standard operational participant connected to neighboring entities.",
+        "degree": 0,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.0,
+        "community_id": -1,
+        "subgraph_entities": [
+          "CLUSTER_003",
+          "CLUSTER_001",
+          "CLUSTER_004",
+          "CLUSTER_002"
+        ],
+        "suggested_actions": [
+          "Inspect Direct Neighbors"
+        ]
+      },
+      "spatialContext": {
+        "available": true,
+        "waypoints": [
+          {
+            "name": "Mohali",
+            "lat": 30.6882,
+            "lng": 76.7358,
+            "timestamp": "2026-08-28T22:36:00Z",
+            "event_id": "B016",
+            "type": "POINT"
+          }
+        ],
+        "primary_location": "Mohali",
+        "distance_km": null,
+        "implied_speed_kmh": null,
+        "elapsed_seconds": null,
+        "movement_description": "1 verified geographic coordinate records at Mohali."
+      },
+      "supportingEvents": [
+        {
+          "event_id": "IP009",
+          "timestamp": "2026-08-28T22:00:00Z",
+          "relative_time": "+0m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.11",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "B014",
+          "timestamp": "2026-08-28T22:05:00Z",
+          "relative_time": "+5m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 320000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK003",
+          "location": "Chandigarh",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "C009",
+          "timestamp": "2026-08-28T22:12:00Z",
+          "relative_time": "+12m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "IP010",
+          "timestamp": "2026-08-28T22:18:00Z",
+          "relative_time": "+18m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.12",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "B015",
+          "timestamp": "2026-08-28T22:19:00Z",
+          "relative_time": "+19m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 315000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK004",
+          "location": "Zirakpur",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "C010",
+          "timestamp": "2026-08-28T22:29:00Z",
+          "relative_time": "+29m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "B016",
+          "timestamp": "2026-08-28T22:36:00Z",
+          "relative_time": "+36m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 310000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK005",
+          "location": "Mohali",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "IP011",
+          "timestamp": "2026-08-28T22:36:00Z",
+          "relative_time": "+36m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.13",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "C011",
+          "timestamp": "2026-08-28T22:47:00Z",
+          "relative_time": "+47m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-MOH-07",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "B017",
+          "timestamp": "2026-08-28T22:54:00Z",
+          "relative_time": "+54m",
+          "domain": "BANKING",
+          "event_type": "TRANSACTION",
+          "amount_inr": 305000.0,
+          "channel": "TRANSFER",
+          "counterparty": "BANK001",
+          "location": "Chandigarh",
+          "ip": null,
+          "evidence_id": "EV-18D23A80",
+          "source_file": "bank_statement.csv"
+        },
+        {
+          "event_id": "IP012",
+          "timestamp": "2026-08-28T22:54:00Z",
+          "relative_time": "+54m",
+          "domain": "NETWORK",
+          "event_type": "IP_SESSION",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": "10.20.1.14",
+          "evidence_id": "EV-AD966F16",
+          "source_file": "ipdr.csv"
+        },
+        {
+          "event_id": "C012",
+          "timestamp": "2026-08-28T23:05:00Z",
+          "relative_time": "+65m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        }
+      ],
+      "detectedAt": "2026-09-05T09:48:10.908838+00:00",
+      "confidence": 0.91,
+      "domain": "CROSS_DOMAIN",
+      "contributingDetectors": [
+        "DET-CROSS-COLLISION"
+      ],
+      "evidence_refs": [
+        "EV-18D23A80",
+        "EV-7641F245",
+        "EV-7B4994C8",
+        "EV-7B61DAFF",
+        "EV-AD966F16",
+        "EV-E8B2AA0B"
+      ],
+      "canonical_event_refs": [
+        "IP009",
+        "B014",
+        "C009",
+        "IP010",
+        "B015",
+        "C010",
+        "B016",
+        "IP011",
+        "C011",
+        "B017",
+        "IP012",
+        "C012"
+      ]
+    },
+    {
+      "id": "FINDING-22A2DA87-0EBA18",
+      "entityId": "CLUSTER_001",
+      "entityType": "Person",
+      "type": "ID_DISCREPANCY",
+      "category": "IDENTITY",
+      "patternType": "ID_DISCREPANCY",
+      "severity": "HIGH",
+      "score": 77.0,
+      "status": "DETECTED",
+      "title": "Device / Identity Discrepancy",
+      "whatHappened": "Aarav's phone briefly maps to an unexpected IMEI/device/IP before returning to prior identifiers.\n\n[CASE SUMMARY FOR INVESTIGATING OFFICER]:\nOn 29 August morning (09:05 to 09:22), suspect Aarav Sharma (+919876501101) temporarily swapped his SIM card into an alternate handset (new IMEI) and connected through an unlisted Panchkula IP address for 17 minutes, placing two calls before reverting to his primary handset.",
+      "whyUnusual": "A transient device and identifier remap on a stable phone line deviates from normal device history.\n\n[WHY THIS IS SUSPICIOUS / \u0905\u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0939\u094b\u0928\u0947 \u0915\u093e \u0915\u093e\u0930\u0923]:\nInserting an active SIM card into an alternate unlisted mobile handset for 17 minutes and then switching back is a recognized tactic to isolate sensitive communications from primary device history.",
+      "whyRelevant": "Device discrepancies document hardware rotation during critical investigation intervals.\n\n[RECOMMENDED POLICE ACTION / \u091c\u093e\u0902\u091a \u0905\u0927\u093f\u0915\u093e\u0930\u0940 \u0915\u0947 \u0932\u093f\u090f \u0915\u093e\u0930\u094d\u092f\u0935\u093e\u0939\u0940]:\n1. Seize both primary handset and alternate handset (IMEI ending in 9942) during suspect apprehension.\n2. Request telecom operator for all SIM cards ever inserted into the alternate handset.",
+      "caseRelevance": "MEDIUM",
+      "investigativePriority": "HIGH",
+      "primaryEntities": [
+        {
+          "entity_id": "CLUSTER_001",
+          "display_name": "Aarav Sharma",
+          "entity_type": "Person",
+          "risk_score": 0.8,
+          "aliases": [
+            "Aarav Sharm"
+          ],
+          "phones": [
+            "+919876501101"
+          ],
+          "accounts": [
+            "BANK001",
+            "BANK002"
+          ],
+          "social_handles": []
+        }
+      ],
+      "relatedEntities": [],
+      "supportingObservations": [
+        "Identified Suspect: Aarav Sharma (Aliases: Aarav Sharm)",
+        "Linked Account: BANK001",
+        "Primary Mobile: +919876501101",
+        "Evidentiary Basis: 3 verified records corroborated across Kyc"
+      ],
+      "detectorSummary": [
+        {
+          "detector_id": "DET-ID-DISCREPANCY",
+          "name": "Device / Identity Discrepancy",
+          "domain": "KYC",
+          "score": 77.0,
+          "confidence": 0.9,
+          "status": "FLAGGED",
+          "observations": {
+            "discrepancy_types": [
+              "ALIAS_PROLIFERATION"
+            ],
+            "conflicting_attributes": []
+          }
+        }
+      ],
+      "reasons": [
+        "Identified Suspect: Aarav Sharma (Aliases: Aarav Sharm)",
+        "Linked Account: BANK001",
+        "Primary Mobile: +919876501101",
+        "Evidentiary Basis: 3 verified records corroborated across Kyc"
+      ],
+      "metrics": {
+        "primary_name": "CLUSTER_001",
+        "aliases": [],
+        "phones": [],
+        "accounts": [
+          "501200778812"
+        ],
+        "national_ids": [],
+        "risk_score": 0.3,
+        "unique_imeis": [
+          "IMEI-101",
+          "IMEI-999"
+        ],
+        "unique_devices": [
+          "DEVICE-101",
+          "DEVICE-999"
+        ],
+        "device_discrepancy": true
+      },
+      "timelineContext": {
+        "start_time": "2026-08-29T09:05:00Z",
+        "end_time": "2026-08-29T09:22:00Z",
+        "total_events_in_sequence": 3,
+        "sequence_steps": [
+          {
+            "step_index": 1,
+            "timestamp": "2026-08-29T09:05:00Z",
+            "time_offset": "+0m",
+            "domain": "SOCIAL",
+            "description": "Aarav Sharma Social Activity",
+            "event_id": "S013"
+          },
+          {
+            "step_index": 2,
+            "timestamp": "2026-08-29T09:10:00Z",
+            "time_offset": "+5m",
+            "domain": "TELECOM",
+            "description": "Aarav Sharma placed call (102s) [Tower: CELL-PKL-03]",
+            "event_id": "C013"
+          },
+          {
+            "step_index": 3,
+            "timestamp": "2026-08-29T09:22:00Z",
+            "time_offset": "+17m",
+            "domain": "TELECOM",
+            "description": "Aarav Sharma placed call (95s) [Tower: CELL-CHD-22]",
+            "event_id": "C014"
+          }
+        ]
+      },
+      "graphContext": {
+        "focused_entity": "CLUSTER_001",
+        "structural_role": "Participant",
+        "role_description": "Standard operational participant connected to neighboring entities.",
+        "degree": 0,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.0,
+        "community_id": -1,
+        "subgraph_entities": [
+          "CLUSTER_001"
+        ],
+        "suggested_actions": [
+          "Inspect Direct Neighbors"
+        ]
+      },
+      "spatialContext": {
+        "available": false,
+        "reason": "No geographic coordinates or telemetry records associated with this finding."
+      },
+      "supportingEvents": [
+        {
+          "event_id": "S013",
+          "timestamp": "2026-08-29T09:05:00Z",
+          "relative_time": "+0m",
+          "domain": "SOCIAL",
+          "event_type": "SOCIAL_ACTIVITY",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": null,
+          "ip": null,
+          "evidence_id": "EV-7B61DAFF",
+          "source_file": "social_activity.csv"
+        },
+        {
+          "event_id": "C013",
+          "timestamp": "2026-08-29T09:10:00Z",
+          "relative_time": "+5m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-PKL-03",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        },
+        {
+          "event_id": "C014",
+          "timestamp": "2026-08-29T09:22:00Z",
+          "relative_time": "+17m",
+          "domain": "TELECOM",
+          "event_type": "CALL",
+          "amount_inr": 0.0,
+          "channel": null,
+          "counterparty": null,
+          "location": "CELL-CHD-22",
+          "ip": null,
+          "evidence_id": "EV-7641F245",
+          "source_file": "cdr.csv"
+        }
+      ],
+      "detectedAt": "2026-09-05T09:48:10.908836+00:00",
+      "confidence": 0.9,
+      "domain": "IDENTITY",
+      "contributingDetectors": [
+        "DET-ID-DISCREPANCY"
+      ],
+      "evidence_refs": [
+        "EV-18D23A80",
+        "EV-7641F245",
+        "EV-7B4994C8",
+        "EV-7B61DAFF",
+        "EV-AD966F16",
+        "EV-E8B2AA0B"
+      ],
+      "canonical_event_refs": [
+        "S013",
+        "C013",
+        "C014"
+      ]
+    }
+  ]
+}

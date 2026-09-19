@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FAFAFA;
+    --foreground: #09090b;
+    --panel: #FFFFFF;
+    
+    --card: #FFFFFF;
+    --border: #e4e4e7;
+    --input: #e4e4e7;
+    --ring: #6366f1; /* Indigo 500 */
+    
+    --primary: #6366f1; /* Indigo 500 */
+    --primary-foreground: #ffffff;
+    
+    --secondary: #f4f4f5;
+    --secondary-foreground: #18181b;
+    
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    
+    --accent: #f4f4f5;
+    --accent-foreground: #18181b;
+    
+    --popover: #ffffff;
+  }
+
+  .dark {
+    --background: #09090b; /* Charcoal/near black */
+    --foreground: #fafafa;
+    --panel: rgba(24, 24, 27, 0.4);
+    
+    --card: #121214;
+    --border: #27272a;
+    --input: #27272a;
+    --ring: #818cf8; /* Indigo 400 */
+    
+    --primary: #6366f1; /* Indigo 500 */
+    --primary-foreground: #ffffff;
+    
+    --secondary: #27272a;
+    --secondary-foreground: #fafafa;
+    
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    
+    --accent: #27272a;
+    --accent-foreground: #fafafa;
+    
+    --popover: #121214;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Universal High-Visibility Text Selection across Light and Dark themes */
+  ::selection {
+    background-color: #4f46e5 !important; /* Deep vibrant indigo in light mode */
+    color: #ffffff !important;           /* Crisp high-contrast pure white text */
+  }
+
+  ::-moz-selection {
+    background-color: #4f46e5 !important;
+    color: #ffffff !important;
+  }
+
+  .dark ::selection {
+    background-color: #6366f1 !important; /* Luminous indigo highlight in dark mode */
+    color: #ffffff !important;           /* Crisp high-contrast pure white text */
+  }
+
+  .dark ::-moz-selection {
+    background-color: #6366f1 !important;
+    color: #ffffff !important;
+  }
+
+  html, body {
+    @apply h-full min-h-[100dvh] bg-background text-foreground font-sans antialiased transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-panel backdrop-blur-md border border-border shadow-sm;
+  }
+  
+  .glass-drawer {
+    @apply bg-background/95 backdrop-blur-xl border-border shadow-2xl;
+  }
+  
+  .cyber-button {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground transition-colors;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .touch-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted-foreground);
+}
+
+@layer components {
+  .agent-card {
+    @apply bg-slate-800/80 border border-slate-700 rounded-lg p-3 my-3 shadow-md transition-all duration-200 hover:border-indigo-500/50;
+  }
+  
+  .tactical-table {
+    @apply w-full text-left border-collapse my-2 text-xs;
+  }
+  
+  .tactical-table th, .tactical-table td {
+    @apply border-b border-slate-700/50 p-2;
+  }
+  
+  .tactical-table th {
+    @apply font-semibold text-slate-400 uppercase tracking-wider bg-slate-800/50;
+  }
+  
+  .badge {
+    @apply px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider;
+  }
+  
+  .badge.observed {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+  
+  .badge.derived {
+    @apply bg-amber-500/20 text-amber-400 border border-amber-500/30;
+  }
+  
+  .badge.interpretation {
+    @apply bg-indigo-500/20 text-indigo-400 border border-indigo-500/30;
+  }
+}
+
+@keyframes radar-pulse-anim {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+.radar-pulse-ring {
+  animation: radar-pulse-anim 2.5s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
+}
+
+

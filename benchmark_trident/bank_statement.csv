@@ -1,0 +1,8 @@
+transaction_id,timestamp,from_account,from_name,to_account,to_name,amount,channel,description
+TX10001,2026-08-25 09:15:00,ACC-ANIL-01,Anil Kumar,ACC-SUNITA-01,Sunita Verma,1500,UPI,grocery payment
+TX10002,2026-08-25 11:30:00,ACC-AMIT-01,Amit Patel,ACC-ANIL-01,Anil Kumar,3200,IMPS,lunch share
+TX10003,2026-08-25 14:45:00,ACC-SUNITA-01,Sunita Verma,ACC-AMIT-01,Amit Patel,850,UPI,utility bill
+TX90001,2026-08-25 21:05:00,ACC-VICTIM-99,Rajesh Singla,ACC-VIKRAM-01,Vikram Malhotra,1500000,RTGS,urgent business loan
+TX90002,2026-08-25 21:10:00,ACC-VIKRAM-01,Vikram Malhotra,ACC-MULE-02,Sameer Khan,700000,IMPS,vendor payout tranche 1
+TX90003,2026-08-25 21:12:00,ACC-VIKRAM-01,Vikram Malhotra,ACC-MULE-03,Priya Sharma,700000,IMPS,vendor payout tranche 2
+TX90004,2026-08-25 21:20:00,ACC-VIKRAM-01,Vikram Malhotra,ATM-SEC34-01,ATM Sector 34,100000,ATM_CASHOUT,cash withdrawal sub-city centre

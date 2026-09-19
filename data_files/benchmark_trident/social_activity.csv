@@ -1,0 +1,6 @@
+social_id,timestamp,name,phone,platform,activity,group_id,ip
+SOC001,2026-08-25 19:30:00,Vikram Malhotra,9871100223,Telegram,login,TRIDENT-EXEC,185.220.101.5
+SOC002,2026-08-25 20:15:00,Sameer Khan,9899900112,Telegram,message,TRIDENT-EXEC,185.220.101.5
+SOC003,2026-08-25 21:24:00,Vikram Malhotra,9871100223,Telegram,file_share,TRIDENT-EXEC,185.220.101.5
+SOC101,2026-08-25 11:00:00,Anil Kumar,9812001100,WhatsApp,message,chd-residents,192.168.1.10
+SOC102,2026-08-25 14:00:00,Priya Sharma,9811003344,LinkedIn,login,public,192.168.1.50

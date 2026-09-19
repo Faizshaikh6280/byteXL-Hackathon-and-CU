@@ -1,0 +1,48 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Node
+node_modules/
+.npm/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+
+# Zingg Worker
+zingg_worker/logs/
+zingg_worker/target/
+
+# Data files (uncomment if you want to ignore CSV data)
+# data_files/*.csv
+
+# Environment Variables
+.env
+.env.*
+
+# Local Backups
+.git_byteXL_backup/
+README_byteXL.md
+*.db
+*.txt
+fix_*.py
+update_*.py
+query
+

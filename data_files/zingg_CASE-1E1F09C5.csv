@@ -1,0 +1,44 @@
+record_id,full_name,phone,national_id,email,address,account_number,social_handle,device_id
+REC-00001,Shraddha Walkar,+919920112222,,,,501002938471,,
+REC-00002,Aaftab Poonawala,+919811000011,,,,501004019283,,
+REC-00003,Aaftab Poonawala,+919811000011,,,,501004019283,,
+REC-00004,Aaftab Poonawala,+919811000011,,,,501004019283,,
+REC-00005,Aaftab Poonawala,+919811000011,,,,501004019283,,
+REC-00006,Shraddha Walkar,+919920112222,,,,501002938471,,
+REC-00007,Aaftab Poonawala,+919811000011,,,,501004019283,,
+REC-00008,Aaftab Poonawala,+919811000011,,,,501004019283,,
+REC-00009,Aaftab Poonawala,+919811000011,,,,501004019283,,
+REC-00010,Aaftab Poonawala,+919811000011,,,,501004019283,,
+REC-00011,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00012,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00013,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00014,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00015,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00016,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00017,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00018,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00019,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00020,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,
+REC-00021,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000011
+REC-00022,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000022
+REC-00023,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000011
+REC-00024,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000011
+REC-00025,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000011
+REC-00026,Aaftab Poonawala,+919811000011,,,"Chhatarpur Forest Area, New Delhi",,,864201040000011
+REC-00027,Aaftab Poonawala,+919811000011,,,"Chhatarpur Forest Area, New Delhi",,,864201040000011
+REC-00028,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000022
+REC-00029,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000022
+REC-00030,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000022
+REC-00031,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000022
+REC-00032,Shraddha Walkar,+919920112222,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000022
+REC-00033,Laxman Nadar,+919811000033,,,"Vasai West, Palghar, Maharashtra",,,864201040000033
+REC-00034,Aaftab Poonawala,+919811000011,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000011
+REC-00035,Laxman Nadar,+919811000033,,,"Chhatarpur Enclave / Mehrauli, New Delhi",,,864201040000033
+REC-00036,,+919920112222,,,,,@shraddha_walkar,DEV_IPHONE_12_S01
+REC-00037,,+919811000011,,,,,@aaftab_poonawala,DEV_ONEPLUS_9_A01
+REC-00038,,+919920112222,,,,,@shraddha_walkar,DEV_ONEPLUS_9_A01
+REC-00039,,+919920112222,,,,,@shraddha_walkar,DEV_ONEPLUS_9_A01
+REC-00040,,+919811000033,,,,,@laxman_nadar,DEV_SAMSUNG_M31_L01
+REC-00041,,+919811000011,,,,,@aaftab_p_dev,DEV_ONEPLUS_9_A01
+REC-00042,,+919811000011,,,,,@aaftab_p_dev,DEV_ONEPLUS_9_A01
+REC-00043,,+919811000011,,,,,@aaftab_p_dev,DEV_ONEPLUS_9_A01

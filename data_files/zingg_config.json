@@ -1,0 +1,58 @@
+{
+  "tableName": "investigative_unified_staging",
+  "idColumn": "record_id",
+  "matchType": "FIRM",
+  "fields": [
+    {
+      "name": "source_type",
+      "zType": "string",
+      "matchType": "dontMatch"
+    },
+    {
+      "name": "full_name",
+      "zType": "name",
+      "matchType": "fuzzy"
+    },
+    {
+      "name": "phone_number",
+      "zType": "phone",
+      "matchType": "exact"
+    },
+    {
+      "name": "imsi",
+      "zType": "string",
+      "matchType": "exact"
+    },
+    {
+      "name": "imei",
+      "zType": "string",
+      "matchType": "exact"
+    },
+    {
+      "name": "account_number",
+      "zType": "string",
+      "matchType": "exact"
+    },
+    {
+      "name": "social_handle",
+      "zType": "string",
+      "matchType": "exact"
+    },
+    {
+      "name": "ip_address",
+      "zType": "string",
+      "matchType": "exact"
+    },
+    {
+      "name": "source_port",
+      "zType": "integer",
+      "matchType": "exact"
+    },
+    {
+      "name": "address",
+      "zType": "address",
+      "matchType": "fuzzy"
+    }
+  ],
+  "modelId": "investigation_model_v1"
+}

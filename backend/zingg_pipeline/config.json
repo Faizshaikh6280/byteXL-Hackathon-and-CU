@@ -1,0 +1,61 @@
+{
+  "fieldDefinition": [
+    {
+      "fieldName": "record_id",
+      "matchType": "DONT_USE",
+      "dataType": "string"
+    },
+    {
+      "fieldName": "full_name",
+      "matchType": "FUZZY",
+      "dataType": "string"
+    },
+    {
+      "fieldName": "phone",
+      "matchType": "EXACT",
+      "dataType": "string"
+    },
+    {
+      "fieldName": "national_id",
+      "matchType": "EXACT",
+      "dataType": "string"
+    },
+    {
+      "fieldName": "email",
+      "matchType": "EXACT",
+      "dataType": "string"
+    },
+    {
+      "fieldName": "address",
+      "matchType": "FUZZY",
+      "dataType": "string"
+    },
+    {
+      "fieldName": "account_number",
+      "matchType": "EXACT",
+      "dataType": "string"
+    },
+    {
+      "fieldName": "social_handle",
+      "matchType": "FUZZY",
+      "dataType": "string"
+    },
+    {
+      "fieldName": "device_id",
+      "matchType": "EXACT",
+      "dataType": "string"
+    }
+  ],
+  "data": [
+    {
+      "name": "unified_evidence",
+      "format": "csv",
+      "props": {
+        "path": "normalized_evidence_export.csv",
+        "header": "true"
+      }
+    }
+  ],
+  "modelId": "cyber_intel_model",
+  "zinggDir": "zingg_output_models"
+}
